@@ -1,5 +1,34 @@
 <?php 
-    require "../../service/_csrf.php";
+    require __DIR__."/../../service/_csrf.php";
+    require __DIR__."/../../service/_googleCaptcha.php";
+    require __DIR__."/../../service/_pdo.php";
+    require __DIR__."/../../service/_cleanData.php";
+
+    $username = $email = $password = $date = $pays = "";
+    $error = [];
+    $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
+
+    if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inscription']))
+        {
+            $pdo = connexionPDO();
+            if(empty($_POST["username"]))
+                $error["username"] = "Veuillez saisir un nom d'utilisateur !";
+            else
+            {
+                if(strlen($_POST["username"]) < 7 || strlen($_POST["username"]) > 20)
+                    $error["username"] = "Votre nom d'utilisateur doit être compris entre 7 et 20 caractères";
+                else
+                {
+                    $username = cleanData($_POST["username"]);
+                    if(!preg_match("/^[a-zA-Z'\s-]$/", $username))
+                        $error["username"] = "Votre Nom d'utilisateur doit contenir que des lettres";
+                }
+            }
+            
+            
+
+        }
+
 ?>
 
 
@@ -16,7 +45,7 @@
     <br>
     <span class="error"><?php echo $error ["email"] ?? "" ?></span>
     <br>
-    <?php require "./sources/_inputPays.php"?>
+    <?php require __DIR__."/./sources/_inputPays.php"?>
     <br>
     <span class="error"><?php echo $error ["pays"] ?? "" ?></span>
     <br>
@@ -41,16 +70,8 @@
     <label for="cgu">En cochant cette case, vous acceptez nos conditions d'utilisation</label>
     <span class="error"><?php echo $error["cgu"]??""?></span>
     <br>
-    <div>
-        <label for="captcha">VEUILLEZ RECOPIER LE TEXTE CI DESSOUS</label>
-        <br>
-        <img src="../../service/_captcha.php" alt="captcha">
-        <br>
-        <br>
-        <input type="text" name="captcha" id="captcha" pattern="[A-Z0-9]{6}">
-    </div>
+    <div class="g-recaptcha mb-3" data-sitekey="6LfQpWckAAAAADT2gLfOKTWaBeYyUnOG62KHWruc"></div>
     <?php setCSRF(5); ?>
     <br>
-    <span class="error"><?php echo $error??"" ?></span>
-    <input type="submit" value="Valider">
+    <input type="submit" value="Valider" name="inscription">
 </form>

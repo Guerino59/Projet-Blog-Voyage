@@ -11,7 +11,7 @@
     function connexionPDO(): \PDO
     {
         // Je recupere la configuration à ma BDD;
-        $config = require __DIR__."/../config/_blogConfig.php";
+        $config = require __DIR__."/../service/config/_blogConfig.php";
         /*
             dsn signifie Data Source Name
             C'est un string contenat toute les informations pour localiser la BDD;
