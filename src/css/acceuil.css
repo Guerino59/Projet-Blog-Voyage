@@ -35,7 +35,8 @@
     padding-top: 250px;
     font-size: 45px;
     margin-right: 30%;
-    padding-left;
+    margin-top: 5%;
+    padding: 5%;
 }
 .acceuil_presentation > div > img{
     max-width: 550px;
@@ -55,4 +56,18 @@
     position: absolute;
     right:10%;
     top: 140%;
+}
+
+/* ACCEUIL PASSPORT */
+
+.acceuil_formulaire{
+    height: 100vh;
+    background-color: red;
+}
+.acceuil_formulaire > div > p{
+    padding-top: 250px;
+    font-size: 45px;
+    margin-right: 30%;
+    margin-top: 5%;
+    padding: 5%;
 }

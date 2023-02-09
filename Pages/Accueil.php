@@ -30,6 +30,15 @@
                 <img src="../ressources/img/acceuil/presentation3.webp" alt="" class="presentation3">
             </div>
 
+        <div class="acceuil_formulaire">
+            <div class="passport">
+                <!-- choisir design -->
+            </div>
+            <div class="form_passport">
+                <!-- Intégrer le formulaire -->
+            </div>
+        </div>
+
         
     </div>
 </body>
