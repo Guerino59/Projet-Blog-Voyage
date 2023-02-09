@@ -29,17 +29,32 @@
                 <img src="../ressources/img/acceuil/presentation2.webp" alt="" class="presentation2">
                 <img src="../ressources/img/acceuil/presentation3.webp" alt="" class="presentation3">
             </div>
+  
+        </div>
 
         <div class="acceuil_formulaire">
             <div class="passport">
+                <div>
+                </div>
                 <!-- choisir design -->
             </div>
             <div class="form_passport">
+                <div>
                 <!-- Intégrer le formulaire -->
+                </div>
             </div>
         </div>
 
-        
+        <div class="acceuil_bas_de_page">
+            <div class="acceuil_bas_de_page_info">
+                    <p>En savoir plus sur nous ?</p>
+                    <p>(faire un petit résumer pour parler de la création du site)</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Nos divers liens et reseaux</p>
+        </footer>
     </div>
 </body>
 </html>
