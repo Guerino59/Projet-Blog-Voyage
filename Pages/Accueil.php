@@ -41,6 +41,7 @@
             <div class="form_passport">
                 <div>
                 <!-- Intégrer le formulaire -->
+                <?php require "../template/Inscription/_formInscription.php" ?>
                 </div>
             </div>
         </div>
