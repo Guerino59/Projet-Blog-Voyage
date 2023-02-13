@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/acceuil.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../template/Inscription/sources/style.css">
+    <script src="../src/js/acceuil.js" defer></script>
+    <script src="https://kit.fontawesome.com/6e2bb0e8df.js" crossorigin="anonymous"></script>
+    <title>Acceuil</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="body_acceuil">
         <div class="acceuil_start">
-            <p>En savoir plus ?</p>
-            <button>⬇️</button>
+            <h1>En savoir plus ?</h1>
+            <button><i class="fa-solid fa-arrow-turn-down"></i></button>
         </div>
 
         <div class="acceuil_presentation">
@@ -35,9 +38,16 @@
 
         <div class="acceuil_formulaire">
             <div class="passport">
-                <div>
-                </div>
                 <!-- choisir design -->
+                    <div class="img_passport">
+                    <div class="passport_write">
+                            <p class="name"></p>
+                            <p class="mail"></p>
+                            <p class="dateOfBirth"></p>
+                            <p class="country"></p>
+                            <p class="signature"></p>
+                    </div> 
+            </div>
             </div>
             <div class="form_passport">
                 <div>

@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../../font/static/Montserrat-Black.ttf") format("truetype");
+}
+
+form{
+    font-family: "Montserrat";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    color: black;
+    padding: 35px;
+}
+form > div > label{
+    margin: 8px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+}
+form > div > input{
+    width: 500px;
+}
+form > div > *{
+    width: 100%;
+    margin: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+

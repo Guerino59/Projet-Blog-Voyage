@@ -33,15 +33,16 @@
 
 
 <form action="" method="post">
+    <div>
     <label for="username">Nom d'utilisateur : </label>
     <br>
-    <input type="text" name="username" id="username">
+    <input type="text" name="username" id="username" class="nameInput">
     <br>
     <span class="error"><?php echo $error ["username"] ?? "" ?></span>
     <br>
     <label for="email">Adresse Mail : </label>
     <br>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email" id="email" class="mailInput">
     <br>
     <span class="error"><?php echo $error ["email"] ?? "" ?></span>
     <br>
@@ -51,9 +52,15 @@
     <br>
     <label for="birthday">Votre date de naissance : </label>
     <br>
-    <input type="date" name="birthday" id="birthday">
+    <input type="date" name="birthday" id="birthday" class="dateOfBirthInput">
     <br>
     <span class="error"><?php echo $error ["birthday"] ?? "" ?></span>
+    <br>
+    <label for="file">Choisis ta photo de profil : </label>
+    <br>
+    <input type="file" name="superFichier" id="fichier">
+    <br>
+    <span class="error"><?php echo $error ["file"] ?? "" ?></span>
     <br>
     <label for="password">Mot de passe : </label>
     <br>
@@ -66,12 +73,16 @@
     <input type="password" name="verifPass" id="verifPass">
     <br>
     <span class="error"><?php echo $error ["verifPassword"] ?? "" ?></span>
-    <input type="checkbox" name="cgu" id="cgu" value="cgu">
+    </div>
+
+    <div>
     <label for="cgu">En cochant cette case, vous acceptez nos conditions d'utilisation</label>
+    <input type="checkbox" name="cgu" id="cgu" value="cgu">
     <span class="error"><?php echo $error["cgu"]??""?></span>
     <br>
     <div class="g-recaptcha mb-3" data-sitekey="6LfQpWckAAAAADT2gLfOKTWaBeYyUnOG62KHWruc"></div>
     <?php setCSRF(5); ?>
     <br>
     <input type="submit" value="Valider" name="inscription">
+</div>
 </form>

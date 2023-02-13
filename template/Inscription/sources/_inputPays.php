@@ -1,6 +1,6 @@
 <label for="pays">Quel est votre pays favori ? </label>
 <br>
-<select name="pays" id="pays">
+<select name="pays" id="pays" class="countryInput">
 <option value="">Choisissez un pays : </option>
 <option value="Afghanistan">Afghanistan </option>
 <option value="Afrique_Centrale">Afrique_Centrale </option>
@@ -47,7 +47,7 @@
 <option value="Chine">Chine </option>
 <option value="Chypre">Chypre </option>
 <option value="Colombie">Colombie </option>
-<option value="Comores">Colombie </option>
+<option value="Comores">Comores </option>
 <option value="Congo">Congo </option>
 <option value="Congo_democratique">Congo_democratique </option>
 <option value="Cook">Cook </option>
