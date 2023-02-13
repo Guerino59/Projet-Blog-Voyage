@@ -3,16 +3,15 @@
     require __DIR__."/../../service/_googleCaptcha.php";
     require __DIR__."/../../service/_pdo.php";
     require __DIR__."/../../service/_cleanData.php";
-
     $username = $email = $password = $date = $pays = "";
     $error = [];
     $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
+    $reCaptchaCode = $_POST['g-recaptcha-response'] ?? null;
+    $target_file = $target_name = $mime_type = $oldName = "";
 
-    $error = $target_file = $target_name = $mime_type = $oldName = "";
+    $target_dir = __DIR__."./upload/";
 
-$target_dir = __DIR__."./upload/";
-
-$typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
+    $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inscription']))
         {
             $pdo = connexionPDO();
@@ -26,7 +25,7 @@ $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
                 else
                 {
                     $username = cleanData($_POST["username"]);
-                    if(!preg_match("/^[a-zA-Z'\s-]$/", $username))
+                    if(!preg_match("/^[a-zA-Z'\s-]{7,25}$/", $username))
                         $error["username"] = "Votre Nom d'utilisateur doit contenir que des lettres !";
                 }
             }
@@ -74,24 +73,60 @@ $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
                 if(!in_array($mime_type, $typePermis))
                     $error["file"] = "Ce type de fichier n'est pas accepté.";
         
-                if(empty($error["file"]))
-                {  
-                    if(move_uploaded_file($_FILES["superFichier"]["tmp_name"], $target_file))
-                    {
-                    
-                    }
-                    else
-                        $error["file"] = "Erreur lors du téléversage";
-                }
             }
-            if(empty($_POST["date"]))
-                $error["date"] = "Veuillez entrer votre date de naissance";
+            if(empty($_POST["birthday"]))
+                $error["birthday"] = "Veuillez entrer votre date de naissance";
             else
             {
-                $date = $_POST["date"];
+                $date = $_POST["birthday"];
+                $date = date_parse($date);
+                if($date["year"] > 2015 || $date["year"] < 1900)
+                {
+                    $error["birthday"] = "Veuillez saisir une date valide";
+                }
             }
+            if(empty($_POST["password"]))
+            {
+                $error["password"] = "Veuillez entrer un mot de passe !";
+            }
+            else
+            {
+                $password = cleanData($_POST["password"]);
+                if(!preg_match($regexPass, $password))
+                    $error["password"] = "Veuillez saisir un mot de passe contenant au moins une majuscule, un chiffre et un caractere special";
+                else
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+            }
+            if(empty($_POST["verifPass"]))
+                $error["verifPass"] = "Veuillez confirmer votre mot de passe";
+            else
+            {
+                if($_POST["password"] != $_POST["verifPass"])
+                    $error["verifPass"] = "Veuillez saisir le meme mot de passe";
+                
+            }
+            if(empty($_POST["cgu"]))
+                $error["cgu"] = "Veuillez cocher la case ci dessus";
+            if(is_null($reCaptchaCode) || verifyReCaptcha($reCaptchaCode) === false)
+                $error["captcha"] = "false";
+            if(!isCSRFValid())
+                $error["csrf"] = "La méthode utilisée n'est pas permise !";
+
+            if(empty($error))
+            {
+                if(move_uploaded_file($_FILES["superFichier"]["tmp_name"], $target_file))
+                {
+                    $pdo = connexionPDO();
+                    $sql = $pdo->prepare("INSERT INTO utilisateurs(username, birthDate, paysFavoris, password, email, profilePicture) VALUES(?, ?, ?, ?, ?, ?)");
+                    $sql->execute([$username, $date, $pays, $password, $email, $target_file]);
+                }
+                else
+                $error["file"] = "Erreur lors du téléversage";
+                
+            }
+            
         }
-        var_dump($_POST["date"]);
+        
 ?>
 
 
@@ -134,13 +169,14 @@ $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
     <br>
     <input type="password" name="verifPass" id="verifPass">
     <br>
-    <span class="error"><?php echo $error ["verifPassword"] ?? "" ?></span>
+    <span class="error"><?php echo $error ["verifPass"] ?? "" ?></span>
     <input type="checkbox" name="cgu" id="cgu" value="cgu">
     <label for="cgu">En cochant cette case, vous acceptez nos conditions d'utilisation</label>
     <span class="error"><?php echo $error["cgu"]??""?></span>
     <br>
     <div class="g-recaptcha mb-3" data-sitekey="6LfQpWckAAAAADT2gLfOKTWaBeYyUnOG62KHWruc"></div>
     <?php setCSRF(5); ?>
+    <span class="error"><?php echo $error["csrf"] ?? ""?></span>
     <br>
     <input type="submit" value="Valider" name="inscription">
 </form>
