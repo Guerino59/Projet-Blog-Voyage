@@ -2,7 +2,7 @@
 if(session_status() === PHP_SESSION_NONE)
 session_start();
 /*
-    Parametre un token en session et ajoute un inpute hiddent contenant le token
+    Parametre un token en session et ajoute un input hidden contenant le token
     Optionnellement, prend uine duree de vie pour le jeton.
 */
 function setCSRF(int $time = 0):void
@@ -23,11 +23,12 @@ function setCSRF(int $time = 0):void
 */
 function isCSRFValid(): bool
 {
+    var_dump(isset($_SESSION["token"], $_POST["token"]) , $_SESSION["token"] === $_POST["token"]);
     // Si il n'y  a pas de date d'expiration ou si elle n'est pas depassé
     if(!isset($_SESSION["tokenExpire"]) || $_SESSION["tokenExpire"] > time())
     {
         // Si notre token existe et qu'il est bien eagale a celui envoyé en post
-        if(isset($_SESSION["token"], $_POST["tokken"]) && $_SESSION["token"] === $_POST["token"])
+        if(isset($_SESSION["token"], $_POST["token"]) && $_SESSION["token"] === $_POST["token"])
         return true;
         // alors on retourne true, sinon on retourne false
     }
