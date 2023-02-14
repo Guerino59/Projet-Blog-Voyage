@@ -170,7 +170,6 @@
     <input type="password" name="verifPass" id="verifPass">
     <br>
     <span class="error"><?php echo $error ["verifPass"] ?? "" ?></span>
-    <input type="checkbox" name="cgu" id="cgu" value="cgu">
     <label for="cgu">En cochant cette case, vous acceptez nos conditions d'utilisation</label>
     <input type="checkbox" name="cgu" id="cgu" value="cgu">
     <span class="error"><?php echo $error["cgu"]??""?></span>
