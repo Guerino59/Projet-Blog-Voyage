@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
     <link rel="stylesheet" href="../src/css/acceuil.css">
     <link rel="stylesheet" href="../template/Inscription/sources/style.css">
     <script src="../src/js/acceuil.js" defer></script>
     <script src="https://kit.fontawesome.com/6e2bb0e8df.js" crossorigin="anonymous"></script>
-    <title>Acceuil</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+
     <div class="body_acceuil">
         <div class="acceuil_start">
             <h1>En savoir plus ?</h1>

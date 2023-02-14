@@ -1,0 +1,41 @@
+.filActu{
+    height: 60vh;
+    width: 100%;
+    background-color: #D6D6D6;
+}
+
+.filActu > .filActu-cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 75px;
+}
+
+.filActu > .filActu-cards > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 15vh;
+    width: 60%;
+    background-color: green;
+}
+
+.filActu > .filActu-cards > div > ul{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   width: 100%;
+}
+
+.filActu > .filActu-cards > div > ul > li{
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+}
+
+.filActu > .filActu-cards > div > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
