@@ -9,7 +9,7 @@
     $reCaptchaCode = $_POST['g-recaptcha-response'] ?? null;
     $target_file = $target_name = $mime_type = $oldName = "";
 
-    $target_dir = __DIR__."./upload/";
+    $target_dir = __DIR__."\\upload\\";
 
     $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inscription']))
@@ -61,7 +61,7 @@
                 $target_name = uniqid(time()."-", true)."-".$oldName;
                 
                 $target_file = $target_dir . $target_name;
-                
+                var_dump($target_file);
                 $mime_type = mime_content_type($_FILES["superFichier"]["tmp_name"]);
                 
                 if(file_exists($target_file))
@@ -78,8 +78,8 @@
                 $error["birthday"] = "Veuillez entrer votre date de naissance";
             else
             {
-                $date = $_POST["birthday"];
-                $date = date_parse($date);
+                $birthday = $_POST["birthday"];
+                $date = date_parse($birthday);
                 if($date["year"] > 2015 || $date["year"] < 1900)
                 {
                     $error["birthday"] = "Veuillez saisir une date valide";
@@ -118,7 +118,10 @@
                 {
                     $pdo = connexionPDO();
                     $sql = $pdo->prepare("INSERT INTO utilisateurs(username, birthDate, paysFavoris, password, email, profilePicture) VALUES(?, ?, ?, ?, ?, ?)");
-                    $sql->execute([$username, $date, $pays, $password, $email, $target_file]);
+                    $sql->execute([$username, $birthday, $pays, $password, $email, $target_file]);
+                    $_SESSION["flash"] = "Votre compte à bien été crée. Vous pouvez desormais vous connecté";
+                    header("Location: /Projet-Blog-Voyage/Pages/connexion/connexion.php");
+                    exit;
                 }
                 else
                 $error["file"] = "Erreur lors du téléversage";
