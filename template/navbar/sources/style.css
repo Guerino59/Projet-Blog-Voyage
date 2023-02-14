@@ -1,0 +1,25 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 1.5rem;
+    padding: 20px;    
+    background-color: #0a6363;
+    color: #d6d6d6;
+    text-shadow: 0 0 50px #001111;
+    border-bottom: 5px solid black;
+}
+nav > ul > li > a{
+    text-decoration: none;
+    color: #d6d6d6;
+}
+i{
+    margin-left: 5px
+}
