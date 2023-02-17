@@ -2,11 +2,11 @@
     $title = "Fil d'Actualité";
     require __DIR__."/../template/navbar/_navbar.php" 
 ?>
-    <link rel="stylesheet" href="../src/css/filActu.css">
+    <link rel="stylesheet" href="../src/css/MesLikes.css">
 
-<div class="filActu">
+<div class="MesLikes">
 
-    <div class="filActu-cards">
+    <div class="MesLikes-cards">
         <a href="./detailsArticle.php">
             <div>
             <ul>
@@ -26,7 +26,7 @@
         </a>
     </div>
 
-    <div class="filActu-cards">
+    <div class="MesLikes-cards">
         <a href="./detailsArticle.php">
             <div>
             <ul>
@@ -46,7 +46,7 @@
         </a>
     </div>
 
-    <div class="filActu-cards">
+    <div class="MesLikes-cards">
         <a href="./detailsArticle.php">
             <div>
             <ul>
@@ -66,7 +66,7 @@
         </a>
     </div>
 
-    <div class="filActu-cards">
+    <div class="MesLikes-cards">
         <a href="./detailsArticle.php">
             <div>
             <ul>
@@ -86,7 +86,7 @@
         </a>
     </div>
 
-    <div class="filActu-cards">
+    <div class="MesLikes-cards">
         <a href="./detailsArticle.php">
             <div>
             <ul>

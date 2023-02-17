@@ -13,6 +13,7 @@
 </head>
 <body>
 
+    <button class="deja_membre"><a href="./filActu.php">Déjà Membre ?</a></button>
     <div class="body_acceuil">
         <div class="acceuil_start">
             <h1>En savoir plus ?</h1>
