@@ -31,6 +31,20 @@
     height: 5vh;
     width: 5vh;
 }
+.deja_membre{
+    position: fixed;
+    right: 1%;
+    top: 2%;
+    background-color: #0b4747;
+    padding: 20px;
+    border-radius: 5%;
+    z-index: 1;
+}
+
+.deja_membre > a{
+    text-decoration: none;
+    color: #D6D6D6;
+}
 
 /* ACCEUIL PRESENTATION */
 

@@ -7,6 +7,7 @@
 nav > ul{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     list-style: none;
     font-size: 1.5rem;
@@ -15,10 +16,25 @@ nav > ul{
     color: #d6d6d6;
     text-shadow: 0 0 50px #001111;
     border-bottom: 5px solid black;
+    position: relative;
+    height: 80px;
 }
 nav > ul > li > a{
     text-decoration: none;
     color: #d6d6d6;
+}
+nav > ul > li > img{
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    height: 50px;
+    
+}
+.profile-nav
+{
+    margin-right: -30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 i{
     margin-left: 5px
