@@ -1,8 +1,63 @@
-*, ::before, ::after{
-margin:0;
-padding:0;
-box-sizing:border-box;
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-p{
-    color: red;
+
+@import url(../../../src/css/variable.css);
+
+footer {
+    display: flex;
+    height: 200px;
+    background-color: var(--navColor);
+    font-family: var(--mainFont);
+}
+
+.bloc-contact {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+
+iframe {
+    height: 80%;
+    width: 100%;
+}
+
+.bloc-socials {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.logo-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.logo-socials i {
+    transition: all 0.5s ease;
+    padding: 0 3px;
+    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+}
+
+.logo-socials i:hover {
+    color: var(--navColor);
+    transform: scale(1.1);
+}
+
+.info-socials {
+    width: 30%;
+    text-align: center;
+    color: white;
 }
