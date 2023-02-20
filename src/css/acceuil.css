@@ -1,18 +1,17 @@
-*, ::before, ::after{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-}
-@font-face {
-    font-family: "Montserrat";
-    src: url("../../font/static/Montserrat-SemiBold.ttf") format("truetype");
+@import url(./variable.css);
 
-    font-family: "Aladin";
-    src: url("../../font/Aladin-Regular.ttf") format("truetype");
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
 
 /* ACCEUIL START */
-.acceuil_start{
+.acceuil_start {
     background: url("../../ressources/img/acceuil/avion_acceuil.jpg") no-repeat center/cover fixed;
     height: 100vh;
     text-align: center;
@@ -20,12 +19,14 @@
     text-shadow: 0 0 10px #0b4747;
     border-bottom: 2px solid black;
 }
-.acceuil_start > h1{
+
+.acceuil_start>h1 {
     padding-top: 250px;
     font-size: 200px;
-    font-family: "Aladin";
+    font-family: var(--titleFont);
 }
-.acceuil_start > button{
+
+.acceuil_start>button {
     margin-top: 350px;
     height: 5vh;
     width: 5vh;
@@ -47,7 +48,7 @@
 
 /* ACCEUIL PRESENTATION */
 
-.acceuil_presentation{
+.acceuil_presentation {
     height: 100vh;
     display: flex;
     text-align: center;
@@ -56,7 +57,8 @@
     border-bottom: 2px solid black;
     text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
 }
-.acceuil_presentation > div > p{
+
+.acceuil_presentation>div>p {
     text-shadow: 0 0 1px rgb(12, 12, 12);
     padding-top: 250px;
     font-size: 45px;
@@ -64,29 +66,33 @@
     margin-top: 5%;
     padding: 5%;
 }
-.acceuil_presentation > div > img{
+
+.acceuil_presentation>div>img {
     max-width: 550px;
     max-height: 250px;
 }
-.presentation1{
+
+.presentation1 {
     position: absolute;
     right: 5%;
     top: 150%;
 }
-.presentation2{
+
+.presentation2 {
     position: absolute;
     right: 5%;
     top: 120%;
 }
-.presentation3{
+
+.presentation3 {
     position: absolute;
-    right:10%;
+    right: 10%;
     top: 140%;
 }
 
 /* ACCEUIL PASSPORT */
 
-.acceuil_formulaire{
+.acceuil_formulaire {
     height: 100vh;
     background-color: #0b4747;
     display: flex;
@@ -94,7 +100,8 @@
     padding-top: 150px;
     border-bottom: 5px solid black;
 }
-.acceuil_formulaire > div{
+
+.acceuil_formulaire>div {
     border-radius: 2%;
     height: 700px;
     width: 800px;
@@ -102,39 +109,44 @@
     border: 2px solid black;
 }
 
-.passport{
+.passport {
     display: flex;
     align-items: center;
     justify-content: center;
     /* sert a positionner les p en absolute */
     position: relative;
 }
-.passport_write > p{
+
+.passport_write>p {
     position: absolute;
 }
-.name{
-    bottom:37%;
-    left: 55%;  
-}
-.mail{
-    bottom:34%;
-    left: 55%; 
+
+.name {
+    bottom: 37%;
+    left: 55%;
 }
 
-.dateOfBirth{
+.mail {
+    bottom: 34%;
+    left: 55%;
+}
+
+.dateOfBirth {
     bottom: 27%;
-    left: 67%;  
-}
-.country{
-   bottom:30%;
-    left: 61%; 
-}
-.signature{
-    bottom: 15%;
-    left: 62%;  
+    left: 67%;
 }
 
-.img_passport{
+.country {
+    bottom: 30%;
+    left: 61%;
+}
+
+.signature {
+    bottom: 15%;
+    left: 62%;
+}
+
+.img_passport {
     width: 100%;
     height: 100%;
     background: url("../../ressources/img/acceuil/modele_passport_onapaslesdroits.png");
@@ -145,7 +157,7 @@
 
 /* ACCEUIL BAS DE PAGE */
 
-.acceuil_bas_de_page{
+.acceuil_bas_de_page {
     height: 90vh;
     background-color: #d6d6d6;
     display: flex;
@@ -157,7 +169,7 @@
 
 /* ACCEUIL FOOTER */
 
-footer{
+/* footer{
     height: 10vh;
     background-color: #0b4747;
     color: #d6d6d6;
@@ -165,4 +177,4 @@ footer{
     justify-content: space-around;
     align-items: center;
     font-size: 50px;
-}
+} */

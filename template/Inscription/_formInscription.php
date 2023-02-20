@@ -7,10 +7,9 @@
     $error = [];
     $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
     $reCaptchaCode = $_POST['g-recaptcha-response'] ?? null;
-    $target_file = $target_name = $mime_type = $oldName = "";
-
+    $target_file = $target_name = $mime_type = $oldName = $photo = "";
+    $dirPhoto = "\Projet-Blog-Voyage\\template\\Inscription\\upload\\";
     $target_dir = __DIR__."\\upload\\";
-
     $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inscription']))
         {
@@ -61,7 +60,8 @@
                 $target_name = uniqid(time()."-", true)."-".$oldName;
                 
                 $target_file = $target_dir . $target_name;
-                
+                $photo = $dirPhoto . $target_name;
+                var_dump($photo);
                 $mime_type = mime_content_type($_FILES["superFichier"]["tmp_name"]);
                 
                 if(file_exists($target_file))
@@ -118,7 +118,10 @@
                 {
                     $pdo = connexionPDO();
                     $sql = $pdo->prepare("INSERT INTO utilisateurs(username, birthDate, paysFavoris, password, email, profilePicture) VALUES(?, ?, ?, ?, ?, ?)");
-                    $sql->execute([$username, $birthday, $pays, $password, $email, $target_file]);
+                    $sql->execute([$username, $birthday, $pays, $password, $email, $photo]);
+                    $_SESSION["flash"] = "Votre compte à bien été crée. Vous pouvez desormais vous connecté";
+                    header("Location: /Projet-Blog-Voyage/Pages/connexion/connexion.php");
+                    exit;
                 }
                 else
                 $error["file"] = "Erreur lors du téléversage";
