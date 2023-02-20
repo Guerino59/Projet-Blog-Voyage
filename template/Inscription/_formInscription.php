@@ -61,7 +61,7 @@
                 $target_name = uniqid(time()."-", true)."-".$oldName;
                 
                 $target_file = $target_dir . $target_name;
-                var_dump($target_file);
+                
                 $mime_type = mime_content_type($_FILES["superFichier"]["tmp_name"]);
                 
                 if(file_exists($target_file))
@@ -133,7 +133,7 @@
 ?>
 
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="#form" method="post" enctype="multipart/form-data">
     <label for="username">Nom d'utilisateur : </label>
     <br>
     <input type="text" name="username" id="username" class="nameInput">

@@ -37,7 +37,7 @@
   
         </div>
 
-        <div class="acceuil_formulaire">
+        <div id="form" class="acceuil_formulaire">
             <div class="passport">
                 <!-- choisir design -->
                     <div class="img_passport">
