@@ -9,48 +9,65 @@ require "../service/_shouldBeLogged.php";
 // }
 
 require "../service/_pdo.php";
+require "../service/_cleanData.php";
 require "../service/_csrf.php";
 // Je récupère les informations lié à mon utilisateur.
 $pdo = connexionPDO();
 $sql = $pdo->prepare("SELECT * FROM utilisateurs WHERE idUser=?");
-// $sql->execute([(int)$_SESSION["idUser"]]);
+$sql->execute([(int)$_SESSION["idUser"]]);
 $user = $sql->fetch();
 
-$username = $password = $email = $birth = $pays = "";
+$username = $password = $email = $birthDate = $paysFavoris = "";
 $error = [];
 $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
 
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
 {
     if(empty($_POST["username"]))
-        $username = $user["username"];
+        $error["username"] = "Veuillez saisir un nom d'utilisateur !";
     else
     {
-        $username = cleanData($_POST["username"]);
-        if(!preg_match("/^[a-zA-Z'\s-]{2,25}$/", $username))
-            $error["username"]= "Votre nom d'utilisateur ne peut contenir que des lettres";
+        if(strlen($_POST["username"]) < 7 || strlen($_POST["username"]) > 20)
+            $error["username"] = "Votre nom d'utilisateur doit être compris entre 7 et 20 caractères !";
+        else
+        {
+            $username = cleanData($_POST["username"]);
+            if(!preg_match("/^[a-zA-Z'\s-]{7,25}$/", $username))
+                $error["username"] = "Votre Nom d'utilisateur doit contenir que des lettres !";
+        }
     }
     if(empty($_POST["email"]))
-        $email = $user["email"];
+        $error["email"] = "Veuillez saisir un email !";
     else
     {
         $email = cleanData($_POST["email"]);
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-            $error["email"]= "Votre nom d'utilisateur ne peut contenir que des lettres";
-    }
-
-    if(empty($_POST["birthday"]))
-        $birthday = $user["birthday"];
-    else
-    {
-        $birthday = cleanData($_POST["birthday"]);
+            $error["email"] = "Veuillez saisir un email valide !";
+        
+        $sql = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :em"); 
+        $sql->execute(["em"=>$email]);
+        $resultat = $sql->fetch();
+        if($resultat)
+            $error["email"] = "Cet email est déjà enregistré !";
     }
 
     if(empty($_POST["pays"]))
-        $pays = $user["pays"];
+        $error["pays"] = "Veuillez selectionner un pays !";
     else
     {
-        $pays = cleanData($_POST["pays"]);
+        $pays = $_POST["pays"];
+    }
+
+    if(empty($_POST["birthday"]))
+        $error["birthday"] = "Veuillez entrer votre date de naissance";
+    else
+    {
+        $birthday = $_POST["birthday"];
+        $date = date_parse($birthday);
+        if($date["year"] > 2015 || $date["year"] < 1900)
+        {
+            $error["birthday"] = "Veuillez saisir une date valide";
+        }
     }
 
     if(empty($_POST["password"]))
@@ -75,26 +92,25 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
     }
     if(empty($error))
     {
-        $sql = $pdo->prepare("UPDATE users SET 
+        $sql = $pdo->prepare("UPDATE utilisateurs SET 
             username=:us,
             email = :em,
-            pays = :py,
-            birth = :bt,
+            paysFavoris = :py,
+            birthDate = :bt,
             password = :mdp
             WHERE idUser = :id");
         $sql->execute([
             "id"=> $user["idUser"],
             "em"=> $email,
-            "bt"=> $birth,
-            "py"=> $pays,
+            "bt"=> $birthDate,
+            "py"=> $paysFavoris,
             "mdp"=> $password,
             "us"=> $username
         ]);
-
         // Ajout d'un Flash Message;
         $_SESSION["flash"] = "Votre Profil a bien été édité.";
         // Je redirige mon utilisateur
-        header("Location: ./.php");
+        header("Location: ./filActu.php");
         exit;
     }
 }
@@ -111,6 +127,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
         text-align:center;
     }
 </style>
+
 <h2>Mise à jour du Profil</h2><hr>
 <form action="" method="post">
     <!-- username -->
@@ -133,13 +150,13 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
     <input type="password" name="passwordBis" id="passwordBis">
     <span class="error"><?php echo $error["passwordBis"]??"" ?></span>
     <br>
-    <!-- Pays -->
-    <?php require __DIR__."/../template/Inscription/sources/_inputPays.php"?>
+    <!-- paysFavoris -->
+    <?php require __DIR__."/../template/Inscription/sources/_inputpays.php"?>
     <br>
     <!-- Date Naissance -->
-    <label for="birthday">Votre date de naissance : </label>
+    <label for="birthDate">Votre date de naissance : </label>
     <br>
-    <input type="date" name="birthday" id="birthday" class="dateOfBirthInput">
+    <input type="date" name="birthDate" id="birthDate" class="dateOfBirthInput">
     <br>
     <input type="submit" value="Mettre à jour" name="update">
 </form>

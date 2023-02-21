@@ -9,22 +9,22 @@
 
     <div class="ajout_article_base">
         <div class="ajout_article_resume">
-            <label for="resume">Resume article</label>
+            <label for="resume">Resume article</label><br>
             <input type="text" name="resume">
         </div>
 
         <div class="ajout_article_resume_img">
-            <label for="resume">Upload img resume</label>
+            <label for="resume">Upload img resume</label><br>
             <input type="file" name="resume-img">
         </div>
 
         <div class="ajout_article_resume">
-            <label for="resume">Commentaires lié a la photo</label>
+            <label for="resume">Commentaires lié a la photo</label><br>
             <input type="text" name="commentaires-lie-img">
         </div>
 
         <div class="ajout_article_resume">
-            <label for="resume">Upload img</label>
+            <label for="resume">Upload img</label><br>
             <input type="file" name="upload-img">
         </div>
     </div>
