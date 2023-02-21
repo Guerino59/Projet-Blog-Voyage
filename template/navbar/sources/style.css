@@ -1,9 +1,19 @@
+@import url(/Projet-Blog-Voyage/src/css/variable.css);
 *, ::before, ::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    z-index: -10000;
+    overflow-x: hidden;
+}
+nav{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
 nav > ul{
     display: flex;
     flex-direction: row;
@@ -15,7 +25,7 @@ nav > ul{
     background-color: #0a6363;
     color: #d6d6d6;
     text-shadow: 0 0 50px #001111;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid white;
     position: relative;
     height: 80px;
 }
@@ -31,11 +41,64 @@ nav > ul > li > img{
 }
 .profile-nav
 {
+    position: relative;
     margin-right: -30px;
     display: flex;
     align-items: center;
     gap: 20px;
+    z-index: 1000;
+    cursor: pointer;
 }
 i{
     margin-left: 5px
 }
+.hidden-nav{
+    position: absolute;
+    bottom: 0px;
+    z-index: 0;
+    transition: all 0.5s ease;
+    top: 67px;
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    right: -200%;
+    /* animation: positionRetour 1s ease forwards; */
+}
+.hidden-nav > ul > li > a{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--navColor);
+    transition: all 0.5s ease;
+}
+.hidden-nav > ul > li > a:hover {
+    color: black;
+}
+.hidden-nav > ul > li{
+    list-style-type: none;
+    padding: 3px 0px;
+}
+.hidden-nav > ul {
+   background-color: white;
+}
+.position
+{
+    transition: all 0.5s ease;
+    animation: positionAller 1s ease forwards;
+}
+@keyframes positionAller {
+    from{
+        right: -200%;
+    }to{
+        right: 0%;
+    }
+    
+}
+@keyframes positionRetour {
+    from{
+        right: 0%;
+    }to{
+        right: -200%;
+    }
+    
+}
+

@@ -26,10 +26,18 @@
         <li><a href="/Projet-Blog-Voyage/Pages/MesLikes.php"><i class="fa-solid fa-heart"></i></a></li>
         <li><a href="/Projet-Blog-Voyage/Pages/AjoutArticle.php"><i class="fa-solid fa-circle-plus"></i></a></li>
         <li class="profile-nav">
-            <a href=""><?php echo $user["username"]?></a>
+            <a><?php echo $user["username"]?></a>
             <img src=<?php echo $user["profilePicture"]?> alt="">
+            <div class="hidden-nav">
+                <ul>
+                    <li><a href="/Projet-Blog-Voyage/Pages/mesArticles.php?id=<?php echo $_SESSION["idUser"]?>">Mes articles</a></li>
+                    <li><a href="">Modifier mon profil</a></li>
+                    <li><a href="/Projet-Blog-Voyage/Pages/connexion/deconnexion.php">Deconnexion</a></li>
+                </ul>
+            </div>
         </li>
+        
+        
     </ul>
 </nav>
-<a href="/Projet-Blog-Voyage/Pages/connexion/deconnexion.php">DECONNEXION</a>
 
