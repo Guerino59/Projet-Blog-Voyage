@@ -13,7 +13,7 @@ require "../service/_csrf.php";
 // Je récupère les informations lié à mon utilisateur.
 $pdo = connexionPDO();
 $sql = $pdo->prepare("SELECT * FROM utilisateurs WHERE idUser=?");
-// $sql->execute([(int)$_SESSION["idUser"]]);
+$sql->execute([(int)$_SESSION["idUser"]]);
 $user = $sql->fetch();
 
 $username = $password = $email = $birth = $pays = "";

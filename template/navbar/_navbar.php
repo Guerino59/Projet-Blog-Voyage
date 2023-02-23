@@ -34,7 +34,7 @@ $user = infoUsers($_SESSION["idUser"]);
                 <div class="hidden-nav">
                     <ul>
                         <li><a href="/Projet-Blog-Voyage/Pages/mesArticles.php?id=<?php echo $_SESSION["idUser"] ?>">Mes articles</a></li>
-                        <li><a href="">Modifier mon profil</a></li>
+                        <li><a href="/Projet-Blog-Voyage/Pages/modifierUtilisateur.php">Modifier mon profil</a></li>
                         <li><a href="/Projet-Blog-Voyage/Pages/connexion/deconnexion.php">Deconnexion</a></li>
                     </ul>
                 </div>

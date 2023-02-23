@@ -15,3 +15,18 @@ function AllArticle()
     $sql->execute();
     return $sql->fetchAll();
 }
+
+function mesArticles($idUser)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM article WHERE idUser=?");
+    $sql->execute([$idUser]);
+    return $sql->fetchAll();
+}
+
+function deleteArticle($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("DELETE * FROM article WHERE idArticle=?");
+    $sql->execute([$idArticle]);
+}
