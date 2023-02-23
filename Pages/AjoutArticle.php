@@ -4,8 +4,12 @@
 ?>
 <link rel="stylesheet" href="../src/css/AjoutArticle.css">
 <div class="ajout_article">
-    <label for="titre">Nom de l'article</label>
-    <input type="text" name="titre">
+    <div class="titre_et_pays">
+        <label for="titre">Nom de l'article</label>
+        <input type="text" name="titre">
+        <br>
+        <?php require "../template/Inscription/sources/_inputPays.php" ?>
+    </div>
 
     <div class="ajout_article_base">
         <div class="ajout_article_resume">
@@ -27,15 +31,6 @@
             <label for="resume">Upload img</label><br>
             <input type="file" name="upload-img">
         </div>
-    </div>
-    
-    <div class="ajout_section">
-        <select name="" id="">
-            <option value="">Ajouter texte/image</option>
-            <option value="">Ajouter image</option>
-            <option value="">Ajouter texte</option>
-        </select>
-        <button>Ajouter section ?</button>
     </div>
 
     <div class="poster">
