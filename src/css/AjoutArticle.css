@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 20px;
 }
 .ajout_article_base{
     display: flex;
@@ -17,6 +16,22 @@
     height: 200px;
 }
 
+.resume_text, .text_lie_image{
+    width: 250px;
+    height: 150px;
+    margin-top: 30px;
+    padding: 5px;
+    resize: none;
+}
+
+.image_lie_text, .resume_img{
+    padding-top: 75px;
+}
+
+.countryInput{
+    margin-top: 20px;
+}
+
 .poster{
     position: relative;
     width: 100%;
@@ -26,6 +41,6 @@
 .poster > button{
     position: absolute;
     right: 5%;
-    bottom: 50%;
+    top: 10%;
     padding: 10px;
 }

@@ -1,0 +1,19 @@
+body{
+    background-color: #D6D6D6;
+}
+form > *{
+    margin: 5px;
+    padding: 3px;
+}
+
+form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 225px;
+}
+input{
+    text-align: center;
+    min-width: 500px;
+}

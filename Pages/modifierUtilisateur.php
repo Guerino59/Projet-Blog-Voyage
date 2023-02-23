@@ -1,5 +1,9 @@
+<?php
+    $title = "Modifier Utilisateurs";
+    require __DIR__."/../template/navbar/_navbar.php" 
+?>
+
 <?php 
-require "../service/_shouldBeLogged.php";
 // shouldBeLogged(true, "./exercice/connexion.php");
 
 // if(empty($_GET["id"]) || $_SESSION["idUser"] != $_GET["id"])
@@ -8,7 +12,6 @@ require "../service/_shouldBeLogged.php";
 //     exit;
 // }
 
-require "../service/_pdo.php";
 require "../service/_cleanData.php";
 require "../service/_csrf.php";
 // Je récupère les informations lié à mon utilisateur.
@@ -116,46 +119,30 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
 }
 
 ?>
-<style>
-    form{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    h2{
-        text-align:center;
-    }
-</style>
+<link rel="stylesheet" href="../src/css/modifierUtilisateur.css">
 
-<h2>Mise à jour du Profil</h2><hr>
 <form action="" method="post">
+    <h2>Mise à jour du Profil</h2>
     <!-- username -->
     <label for="username">Nom d'Utilisateur :</label>
     <input type="text" name="username" id="username" value="<?php echo $user['username']?>">
     <span class="error"><?php echo $error["username"]??"" ?></span>
-    <br>
     <!-- Email -->
     <label for="email">Adresse Email :</label>
     <input type="email" name="email" id="email" value="<?php echo $user['email']?>">
     <span class="error"><?php echo $error["email"]??"" ?></span>
-    <br>
     <!-- Password -->
     <label for="password">Mot de Passe :</label>
     <input type="password" name="password" id="password">
     <span class="error"><?php echo $error["password"]??"" ?></span>
-    <br>
     <!-- password verify -->
     <label for="passwordBis">Confirmation du mot de passe :</label>
     <input type="password" name="passwordBis" id="passwordBis">
     <span class="error"><?php echo $error["passwordBis"]??"" ?></span>
-    <br>
     <!-- paysFavoris -->
     <?php require __DIR__."/../template/Inscription/sources/_inputpays.php"?>
-    <br>
     <!-- Date Naissance -->
     <label for="birthDate">Votre date de naissance : </label>
-    <br>
     <input type="date" name="birthDate" id="birthDate" class="dateOfBirthInput">
     <br>
     <input type="submit" value="Mettre à jour" name="update">

@@ -1,8 +1,9 @@
-
-
+<link rel="stylesheet" href="../../src/css/connexion/connexion.css">
 <?php 
 require "../../service/_shouldBeLogged.php";
 require "../../service/_pdo.php";
+
+
 shouldBeLogged(false, "/");
 $email = $pass = "";
 $error = [];
