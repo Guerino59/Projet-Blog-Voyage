@@ -17,10 +17,6 @@
     height: 200px;
 }
 
-.ajout_section > *{
-    margin: 20px;
-}
-
 .poster{
     position: relative;
     width: 100%;
@@ -30,6 +26,6 @@
 .poster > button{
     position: absolute;
     right: 5%;
-    bottom: 10%;
+    bottom: 50%;
     padding: 10px;
 }
