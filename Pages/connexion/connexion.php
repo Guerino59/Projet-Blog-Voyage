@@ -56,6 +56,7 @@ if(isset($_SESSION["flash"])): ?>
 ?>
 
 <form action="" method="post">
+    <h2>Connexion</h2>
     <label for="email">Email</label>
     <input type="email" name="email" id="email">
     <br>
