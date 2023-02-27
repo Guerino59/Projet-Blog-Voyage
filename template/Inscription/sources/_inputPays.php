@@ -1,4 +1,6 @@
-<label for="pays">Quel est votre pays favori ? </label>
+
+
+<label for="pays"><?php echo $paysInput??"Cours PHP" ?></label>
 <br>
 <select name="pays" id="pays" class="countryInput">
 <option value="">Choisissez un pays : </option>
