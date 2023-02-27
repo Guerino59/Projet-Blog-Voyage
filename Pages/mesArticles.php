@@ -1,6 +1,6 @@
 <?php
-require "../service/_shouldBeLogged.php";
-shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
+$title = "Mes articles";
+require __DIR__."/../template/navbar/_navbar.php";
     if(!isset($_GET["id"]) || $_GET["id"] != $_SESSION["idUser"])
     {
        header("Location: ./Accueil.php");
@@ -8,6 +8,12 @@ shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
     }
     else
     {
-        echo "COUCOU";
-    }
-?>
+       
+    require __DIR__."/../template/mesArticles/_mesArticles.php" ;
+    
+    }   
+    ?>   
+    <link rel="stylesheet" href="../src/css/filActu.css">
+
+    
+  

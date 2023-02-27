@@ -15,3 +15,25 @@ function AllArticle()
     $sql->execute();
     return $sql->fetchAll();
 }
+
+function mesArticles($idUser)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM article WHERE idUser=?");
+    $sql->execute([$idUser]);
+    return $sql->fetchAll();
+}
+
+function deleteArticle($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("DELETE * FROM article WHERE idArticle=?");
+    $sql->execute([$idArticle]);
+}
+
+function newArticle($idUser, $titleArticle, $pays, $photoResume, $texteResume, $photoCommentaires, $texteContenu)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("INSERT INTO article(idUser, nomArticle, nomPays, photoResume, texteResume, photoContenu, texteContenu) VALUES(?, ?, ?, ?, ?, ?, ?)");
+    $sql->execute([$idUser, $titleArticle, $pays, $photoResume , $texteResume, $photoCommentaires, $texteContenu]);         
+}
