@@ -141,6 +141,16 @@
             <span class="error"><?php echo $error ["file"] ?? "" ?></span>
         </div>
     </div>
+    
+    <div class="ajout_section">
+        <select name="" id="">
+            <option value="">Ajouter texte/image</option>
+            <option value="">Ajouter image</option>
+            <option value="">Ajouter texte</option>
+        </select>
+        <button>Ajouter section ?</button>
+    </div>
+
     <div class="poster">
         <input class="submit" type="submit" value="Poster" name="create"></input>
     </div>
