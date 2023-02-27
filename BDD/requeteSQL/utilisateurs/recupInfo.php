@@ -30,3 +30,10 @@ function deleteArticle($idArticle)
     $sql = $pdo->prepare("DELETE * FROM article WHERE idArticle=?");
     $sql->execute([$idArticle]);
 }
+
+function newArticle($idUser, $titleArticle, $pays, $photoResume, $texteResume, $photoCommentaires, $texteContenu)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("INSERT INTO article(idUser, nomArticle, nomPays, photoResume, texteResume, photoContenu, texteContenu) VALUES(?, ?, ?, ?, ?, ?, ?)");
+    $sql->execute([$idUser, $titleArticle, $pays, $photoResume , $texteResume, $photoCommentaires, $texteContenu]);         
+}

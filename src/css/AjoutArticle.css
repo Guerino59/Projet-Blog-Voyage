@@ -27,7 +27,7 @@
     height: 20vh;
 }
 
-.poster > button{
+.poster > .submit{
     position: absolute;
     right: 5%;
     bottom: 10%;
