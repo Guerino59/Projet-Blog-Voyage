@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
         if (strlen($resumeText) < 50 || strlen($resumeText) > 250)
             $error["resumeText"] = "Votre resumé doit contenir au moins 50 caracteres et maximum 250.";
     }
-
-    if (!is_uploaded_file($_FILES["updateResumeImg"]["tmp_name"]))
+    $uploadedResume = !is_uploaded_file($_FILES["updateResumeImg"]["tmp_name"]);
+    if ($uploadedResume)
         $photoResume = $monArticle["photoResume"];
     else {
 
@@ -65,8 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
         $error["commentaires"] = "Veuillez ajouter un resumé à votre article.";
     else
         $commentaires = cleanData($_POST["commentaires"]);
-    if (!is_uploaded_file($_FILES["updateCommentairesImg"]["tmp_name"]))
-        $photoCommentaires = $monArticle["photoResume"];
+    $uploadedCommentaires = !is_uploaded_file($_FILES["updateCommentairesImg"]["tmp_name"]);
+    if ($uploadedCommentaires)
+        $photoCommentaires = $monArticle["photoContenu"];
     else {
 
         $oldNameContenu = basename($_FILES["updateCommentairesImg"]["name"]);
@@ -89,19 +90,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
             $error["file"] = "Ce type de fichier n'est pas accepté.";
     }
     if (empty($error)) {
-        if (move_uploaded_file($_FILES["updateCommentairesImg"]["tmp_name"], $target_file_contenu) && move_uploaded_file($_FILES["updateResumeImg"]["tmp_name"], $target_file)) {
-            // unlink($article['photoResume']);
-            // unlink($article['photoContenu']);
+        var_dump($photoCommentaires, $photoResume);
+        $upResume = move_uploaded_file($_FILES["updateResumeImg"]["tmp_name"], $target_file);
+        $upComm = move_uploaded_file($_FILES["updateCommentairesImg"]["tmp_name"], $target_file_contenu);
+        if ($upComm && $upResume) {
+            var_dump($monArticle["photoContenu"]);
+            unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoResume"]);
+            unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoContenu"]);
             updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-
+            die("test");
+            $bonjour = $_SESSION["idUser"];
+            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
+            exit;
+        } elseif ($upComm && $uploadedResume) {
+            unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoContenu"]);
+            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
+            die("no resume");
+            $bonjour = $_SESSION["idUser"];
+            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
+            exit;
+        } elseif ($uploadedCommentaires && $upResume) {
+            unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoResume"]);
+            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
+            die("no comment");
             $bonjour = $_SESSION["idUser"];
             header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
             exit;
         } else {
-
             updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
             $idUser = $_SESSION["idUser"];
-
             header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$idUser");
         }
     }
