@@ -98,8 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
             header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
             exit;
         } else {
-            var_dump($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-            var_dump($error);
+
             updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
             $idUser = $_SESSION["idUser"];
 
