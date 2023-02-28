@@ -140,6 +140,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
     <input type="password" name="passwordBis" id="passwordBis">
     <span class="error"><?php echo $error["passwordBis"]??"" ?></span>
     <!-- paysFavoris -->
+    <?php $paysInput = "Pays favori :"; ?>
     <?php require __DIR__."/../template/Inscription/sources/_inputpays.php"?>
     <!-- Date Naissance -->
     <label for="birthDate">Votre date de naissance : </label>

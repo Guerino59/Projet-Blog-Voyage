@@ -1,3 +1,8 @@
+@import url(./variable.css);
+
+body{
+    background-color: var(--backgroundColor);
+}
 .ajout_article{
     display: flex;
     justify-content: center;
@@ -13,18 +18,18 @@
 .ajout_article_base > div{
     width: 40%;
     margin-top: 50px;
-    height: 200px;
+    min-height: 200px;
 }
 
-.resume_text, .text_lie_image{
-    width: 250px;
-    height: 150px;
+ #resumeText , #commentaires{
+    min-width: 250px;
+    min-height: 150px;
     margin-top: 30px;
     padding: 5px;
     resize: none;
 }
 
-.image_lie_text, .resume_img{
+#resumeImg, #commentairesImg{
     padding-top: 75px;
 }
 
@@ -35,7 +40,7 @@
 .poster{
     position: relative;
     width: 100%;
-    height: 20vh;
+    min-height: 20vh;
 }
 
 .poster > .submit{
@@ -43,4 +48,34 @@
     right: 5%;
     top: 10%;
     padding: 10px;
+}
+
+@media (min-width: 0px) and (max-width: 1000px) 
+{
+    .ajout_article_base{
+        flex-direction: column;
+    }
+    .ajout_article_base> div{
+        width: 100%;
+        min-height: 0px;
+    }
+    #resumeText , #commentaires{
+        min-width: 0px;
+        min-height: 0px;
+        margin-top: 0px;
+        padding: 5px;
+        resize: none;
+    }
+    
+    #resumeImg, #commentairesImg{
+        padding-top: 5px;
+    }
+    .poster{
+        min-height: 0vh;
+    }
+    
+    .poster > .submit{
+        margin: 20px;
+        padding: 10px;
+    }
 }

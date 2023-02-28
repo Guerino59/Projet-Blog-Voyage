@@ -5,34 +5,48 @@
 
 form{
     font-family: "Montserrat";
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     margin: 10px;
     padding: 35px;
     color: rgb(0, 0, 0);
-}
-form > div > label{
-    margin: 8px;
-    width: 500px;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
+    text-align: center;
+}
+form > input{
+    padding: 2px;
+    padding-left: 4px;
 }
 .error{
     color: red;
     font-size: 12px;
 }
-form > div > input{
-    width: 500px;
+#birthday, #submit{
+    width: 15%;
 }
-form > div > *{
-    width: 100%;
-    margin: 2px;
+#fichier{
+    width: 35%;
+}
+form > *{
+    width: 80%;
+    margin: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+}
+
+@media (min-width: 0px) and (max-width: 1000px) 
+{
+    #birthday, #submit{
+        width: 45%;
+    }
+    #fichier{
+        width: 51%;
+    }
+    form > label{
+        font-size:small;
+    }
 }
 

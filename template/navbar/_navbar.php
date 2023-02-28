@@ -22,7 +22,7 @@ $user = infoUsers($_SESSION["idUser"]);
 
 <body>
 
-    <nav>
+    <nav class="navtest">
         <ul>
             <li><a href="/Projet-Blog-Voyage/Pages/Accueil.php">LOGO</a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/filActu.php"><i class="fa-solid fa-house"></i></a></li>
@@ -39,7 +39,44 @@ $user = infoUsers($_SESSION["idUser"]);
                     </ul>
                 </div>
             </li>
-
-
         </ul>
+    </nav>
+
+
+    <nav class="burger">
+        <div class="navbar"  id="acceuil">
+          <div class="container nav-container">
+              <input class="checkbox" type="checkbox" name="" id="checkbox"/>
+              <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+              </div>  
+            
+            <div id="menu-items" class="menu-items">
+                <ul>
+                    <li>
+                        <ul>
+                            <li><a href="/Projet-Blog-Voyage/Pages/Accueil.php">Acceuil</a></li>
+                            <li><a href="/Projet-Blog-Voyage/Pages/filActu.php">Fil d'Actu</a></li>
+                            <li><a href="/Projet-Blog-Voyage/Pages/MesLikes.php">Mes likes</a></li>
+                            <li><a href="/Projet-Blog-Voyage/Pages/AjoutArticle.php">Ajouter un article</a></li>
+                        </ul>
+                    </li>
+                    <li class="profile-burger">
+                        <img src=<?php echo $user["profilePicture"] ?> alt="">
+                        <a><?php echo $user["username"] ?></a><br><br>
+                        <div class="hidden-burger">
+                        <ul>
+                            <li><a href="/Projet-Blog-Voyage/Pages/mesArticles.php?id=<?php echo $_SESSION["idUser"] ?>">Mes articles</a></li>
+                            <li><a href="/Projet-Blog-Voyage/Pages/modifierUtilisateur.php">Modifier mon profil</a></li>
+                            <li><a href="/Projet-Blog-Voyage/Pages/connexion/deconnexion.php">Deconnexion</a></li>
+                        </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+          </div>
+        </div>
     </nav>

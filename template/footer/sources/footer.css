@@ -61,3 +61,32 @@ iframe {
     text-align: center;
     color: white;
 }
+
+@media (min-width: 0px) and (max-width: 1000px){
+    footer {
+        height: 650px;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .footer-info{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bloc-contact {
+        width: 100%;
+        flex-direction: column;
+    }
+    .bloc-socials {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .logo-socials {
+        gap: 30px;
+    }
+    .info-socials {
+        width: 80%;
+    }
+}

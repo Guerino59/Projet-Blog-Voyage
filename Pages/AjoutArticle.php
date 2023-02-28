@@ -105,23 +105,28 @@
 <link rel="stylesheet" href="../src/css/AjoutArticle.css">
 
 <form action ="" class="ajout_article" name="create" method="post" enctype="multipart/form-data">
+    <div class="nom_Article_et_Pays">
     <label for="titre">Nom de l'article</label>
     <input type="text" name="titre" id="titre">
     <br>
     <span class="error"><?php echo $error ["titre"] ?? "" ?></span>
+    <br>
     <?php require "../template/Inscription/sources/_inputPays.php"?>
+    </div>
     <br>
     <span class="error"><?php echo $error ["pays"] ?? "" ?></span>
     <div class="ajout_article_base">
         <div class="ajout_article_resume">
             <label for="resumeText">Resume article</label>
-            <input type="text" name="resumeText" id="resumeText">
+            <br>
+            <textarea name="resumeText" id="resumeText" cols="30" rows="10"></textarea>
             <br>
             <span class="error"><?php echo $error ["resumeText"] ?? "" ?></span>
         </div>
 
         <div class="ajout_article_resume_img">
             <label for="resumeImg">Upload img resume</label>
+            <br>
             <input type="file" name="resumeImg" id="resumeImg">
             <br>
             <span class="error"><?php echo $error ["file"] ?? "" ?></span>
@@ -129,13 +134,15 @@
 
         <div class="ajout_article_resume">
             <label for="commentaires">Commentaires lié a la photo</label>
-            <input type="text" name="commentaires" id="commentaires">
+            <br>
+            <textarea name="commentaires" id="commentaires" cols="30" rows="10"></textarea>
             <br>
             <span class="error"><?php echo $error ["commentaires"] ?? "" ?></span>
         </div>
 
         <div class="ajout_article_resume">
             <label for="commentairesImg">Upload img</label>
+            <br>
             <input type="file" name="commentairesImg" id="commentairesImg">
             <br>
             <span class="error"><?php echo $error ["file"] ?? "" ?></span>
