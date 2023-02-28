@@ -4,6 +4,7 @@ require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
 shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
 
 $user = infoUsers($_SESSION["idUser"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

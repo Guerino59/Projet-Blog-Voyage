@@ -27,7 +27,7 @@ function mesArticles($idUser)
 function deleteArticle($idArticle)
 {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("DELETE * FROM article WHERE idArticle=?");
+    $sql = $pdo->prepare("DELETE FROM article WHERE idArticle=?");
     $sql->execute([$idArticle]);
 }
 
@@ -35,5 +35,28 @@ function newArticle($idUser, $titleArticle, $pays, $photoResume, $texteResume, $
 {
     $pdo = connexionPDO();
     $sql = $pdo->prepare("INSERT INTO article(idUser, nomArticle, nomPays, photoResume, texteResume, photoContenu, texteContenu) VALUES(?, ?, ?, ?, ?, ?, ?)");
-    $sql->execute([$idUser, $titleArticle, $pays, $photoResume , $texteResume, $photoCommentaires, $texteContenu]);         
+    $sql->execute([$idUser, $titleArticle, $pays, $photoResume, $texteResume, $photoCommentaires, $texteContenu]);
+}
+
+function articleByIdArticle($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM ARTICLE WHERE idArticle =:idA");
+    $sql->execute(["idA" => $idArticle]);
+    return $sql->fetch();
+}
+
+function updateArticle($titleArticle, $pays, $photoResume, $texteResume, $photoCommentaires, $texteContenu, $idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("UPDATE article SET nomArticle =:nA, nomPays =:nP, photoResume =:pR , texteResume =:tR, photoContenu =:pC, texteContenu =:tC WHERE idArticle =:idA");
+    $sql->execute([
+        "nA" => $titleArticle,
+        "nP" => $pays,
+        "pR" => $photoResume,
+        "tR" => $texteResume,
+        "pC" => $photoCommentaires,
+        "tC" => $texteContenu,
+        "idA" => $idArticle
+    ]);
 }
