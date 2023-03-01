@@ -3,10 +3,15 @@ $title = "Ajout article";
 require __DIR__ . "/../template/navbar/_navbar.php";
 $article = articleByIdArticle($_GET["idArticle"]);
 $usernameArticle = infoUsers($article["idUser"]);
-var_dump($usernameArticle);
+if (isset($_SESSION["flash"])) {
+    $flash =  $_SESSION["flash"];
+    unset($_SESSION["flash"]);
+}
 ?>
 <link rel="stylesheet" href="../src/css/detailsArticle.css">
-
+<?php if (isset($flash)) : ?>
+    <p><?php echo $flash ?></p>
+<?php endif; ?>
 <div class="details_Article">
     <div class="titre">
         <h2><?php echo $article["nomArticle"] ?></h2>
@@ -37,5 +42,5 @@ var_dump($usernameArticle);
             <p><?php echo $article["texteContenu"] ?></p>
         </div>
     </div>
-
+    <?php require __DIR__ . "/../template/commentaire/_commentaire.php" ?>
 </div>
