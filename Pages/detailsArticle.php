@@ -1,39 +1,41 @@
 <?php
-    $title = "Ajout article";
-    require __DIR__."/../template/navbar/_navbar.php" 
+$title = "Ajout article";
+require __DIR__ . "/../template/navbar/_navbar.php";
+$article = articleByIdArticle($_GET["idArticle"]);
+$usernameArticle = infoUsers($article["idUser"]);
+var_dump($usernameArticle);
 ?>
 <link rel="stylesheet" href="../src/css/detailsArticle.css">
+
 <div class="details_Article">
     <div class="titre">
-        <label for="titre">Nom de l'article</label>
-        <br>
-        <input type="text" name="titre" placeholder="Article 1" disabled>
+        <h2><?php echo $article["nomArticle"] ?></h2>
+        <h4><?php echo $article["nomPays"] ?></h4>
     </div>
-
+    <div class="auteur">
+        <p><?php echo $usernameArticle["username"] ?></p>
+        <img src="<?php echo $usernameArticle["profilePicture"] ?>" alt="">
+    </div>
     <!-- resume -->
     <div class="details_Article_base">
         <div class="details_Article_resume">
-            <p>Petit texte franchement très sympa</p>
+            <p><?php echo $article["texteResume"] ?></p>
         </div>
 
         <div class="details_Article_resume_img">
-            <img src="../ressources/img/acceuil/avion_acceuil.jpg" alt="">
+            <img src="<?php echo $article["photoResume"] ?>" alt="">
         </div>
     </div>
 
     <!-- autres -->
     <div>
         <div class="details_Article_autres">
-            <img src="../ressources/img/acceuil/avion_acceuil.jpg" alt="">
+            <img src="<?php echo $article["photoContenu"] ?>" alt="">
         </div>
 
         <div class="details_Article_autres">
-            <textarea>Un grand texte très sympa</textarea>
+            <p><?php echo $article["texteContenu"] ?></p>
         </div>
     </div>
-    
-    <div class="commentaires">
-        <div>Commentaires Intérieur</div>
-        <div>Ajout Commentaires</div>
-    </div>
+
 </div>

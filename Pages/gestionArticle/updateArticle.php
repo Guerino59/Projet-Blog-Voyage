@@ -90,37 +90,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
             $error["file"] = "Ce type de fichier n'est pas accepté.";
     }
     if (empty($error)) {
-        var_dump($photoCommentaires, $photoResume);
         $upResume = move_uploaded_file($_FILES["updateResumeImg"]["tmp_name"], $target_file);
         $upComm = move_uploaded_file($_FILES["updateCommentairesImg"]["tmp_name"], $target_file_contenu);
+        $idUser = $_SESSION["idUser"];
         if ($upComm && $upResume) {
-            var_dump($monArticle["photoContenu"]);
             unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoResume"]);
             unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoContenu"]);
-            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-            die("test");
-            $bonjour = $_SESSION["idUser"];
-            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
-            exit;
         } elseif ($upComm && $uploadedResume) {
             unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoContenu"]);
-            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-            die("no resume");
-            $bonjour = $_SESSION["idUser"];
-            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
-            exit;
         } elseif ($uploadedCommentaires && $upResume) {
             unlink("C:\\xampp\htdocs\projet blog git" . $monArticle["photoResume"]);
-            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-            die("no comment");
-            $bonjour = $_SESSION["idUser"];
-            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
-            exit;
-        } else {
-            updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
-            $idUser = $_SESSION["idUser"];
-            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$idUser");
         }
+        updateArticle($titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires, $_GET['idArticle']);
+        $_SESSION["flash"] = "Votre article à bien été modifié";
+        header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$idUser");
+        exit;
     }
 }
 

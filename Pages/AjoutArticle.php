@@ -83,8 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
     if (empty($error)) {
         if (move_uploaded_file($_FILES["commentairesImg"]["tmp_name"], $target_file_contenu) && move_uploaded_file($_FILES["resumeImg"]["tmp_name"], $target_file)) {
             newArticle($_SESSION["idUser"], $titleArticle, $pays, $photoResume, $resumeText, $photoCommentaires, $commentaires);
-            $bonjour = $_SESSION["idUser"];
-            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$bonjour");
+            $_SESSION["flash"] = "Votre article à bien été publié";
+            $idUser = $_SESSION["idUser"];
+            header("location: /Projet-Blog-Voyage/Pages/mesArticles.php?id=$idUser");
             exit;
         } else
             $error["file"] = "Erreur lors du téléversage";
