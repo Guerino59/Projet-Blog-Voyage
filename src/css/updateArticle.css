@@ -12,6 +12,7 @@ body{
 .ajout_article_base{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 .ajout_article_base > div{
@@ -51,7 +52,7 @@ body{
         flex-direction: column;
     }
     .ajout_article_base> div{
-        width: 100%;
+        width: 60%;
         min-height: 0px;
     }
     #resumeText , #commentaires{

@@ -1,9 +1,12 @@
+@import url('../variable.css');
+
 body{
-    background-color: #D6D6D6;
+    background-color: var(--backgroundColor);
 }
 form > *{
     margin: 5px;
     padding: 3px;
+    font-family: var(--mainFont);
 }
 
 form{
@@ -16,4 +19,14 @@ form{
 input{
     text-align: center;
     min-width: 500px;
+}
+
+@media (min-width: 0px) and (max-width: 1000px) 
+{
+    form{
+        margin-top: 15%;
+    }
+    input{
+        min-width: 80%;
+    }
 }

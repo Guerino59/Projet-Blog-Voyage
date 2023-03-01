@@ -39,6 +39,8 @@
 }
 .details_Article_resume_img > img{
     aspect-ratio: 16/9;
+    min-width: 100%;
+    min-height: 100%;
 }
 .details_Article_resume>p{
     width: 80%;
@@ -68,4 +70,26 @@
 .details_Article_autres>p{
     font-size: 25px;
     margin-bottom: 2%;
+}
+
+@media (min-width: 0px) and (max-width: 1000px) {
+    body{
+        margin-top: 25px;
+    }
+    .details_Article{
+        width: 80%;
+        margin-top: 0%;
+    }
+    .details_Article_resume_img > img{
+        width: 100%;
+    }
+    .details_Article_resume>p{
+        padding: 10px;
+        width: 100%;
+        font-size: 10px;
+        text-align: center;
+    }
+    .details_Article_base{
+        flex-direction: column;
+    }
 }

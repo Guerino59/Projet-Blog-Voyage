@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
 
 ?>
 <link rel="stylesheet" href="../src/css/AjoutArticle.css">
+<script src="../src/js/AjoutArticle.js" defer></script>
 
 <form action="" class="ajout_article" name="create" method="post" enctype="multipart/form-data">
     <label for="titre">Nom de l'article</label>
@@ -110,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
             <label for="resumeText">Resume article</label>
             <br>
             <textarea name="resumeText" id="resumeText" cols="30" rows="10"></textarea>
+            <p class="resume"></p>
             <br>
             <span class="error"><?php echo $error["resumeText"] ?? "" ?></span>
         </div>
@@ -125,7 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
         <div class="ajout_article_resume">
             <label for="commentaires">Commentaires lié a la photo</label>
             <br>
-            <textarea name="commentaires" id="commentaires" cols="30" rows="10"></textarea>
+            <textarea name="commentaires" id="commentaires" cols="30" rows="10"></textarea><br>
+            <p class="commentaires"></p>
             <br>
             <span class="error"><?php echo $error["commentaires"] ?? "" ?></span>
         </div>
