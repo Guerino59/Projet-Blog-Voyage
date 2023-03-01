@@ -20,7 +20,7 @@ body{
     min-height: 200px;
 }
 
- #resumeText , #commentaires{
+#resumeText , #commentaires{
     min-width: 250px;
     min-height: 150px;
     margin-top: 30px;

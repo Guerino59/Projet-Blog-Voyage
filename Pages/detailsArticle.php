@@ -3,7 +3,6 @@ $title = "Ajout article";
 require __DIR__ . "/../template/navbar/_navbar.php";
 $article = articleByIdArticle($_GET["idArticle"]);
 $usernameArticle = infoUsers($article["idUser"]);
-var_dump($usernameArticle);
 ?>
 <link rel="stylesheet" href="../src/css/detailsArticle.css">
 
@@ -28,7 +27,7 @@ var_dump($usernameArticle);
     </div>
 
     <!-- autres -->
-    <div>
+    <div class="autres">
         <div class="details_Article_autres">
             <img src="<?php echo $article["photoContenu"] ?>" alt="">
         </div>
