@@ -9,9 +9,7 @@ if (isset($_SESSION["flash"])) {
 }
 ?>
 <link rel="stylesheet" href="../src/css/detailsArticle.css">
-<?php if (isset($flash)) : ?>
-    <p><?php echo $flash ?></p>
-<?php endif; ?>
+
 <div class="details_Article">
     <div class="titre">
         <h2><?php echo $article["nomArticle"] ?></h2>
@@ -43,4 +41,7 @@ if (isset($_SESSION["flash"])) {
         </div>
     </div>
     <?php require __DIR__ . "/../template/commentaire/_commentaire.php" ?>
+    <?php if (isset($flash)) : ?>
+    <p><?php echo $flash ?></p>
+<?php endif; ?>
 </div>

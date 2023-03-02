@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . "/../../service/_cleanData.php";
-$comms = selectAllCommByIdArticle($_GET["idArticle"]);
+
 $commentaire = "";
 $error = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commente"])) {
@@ -14,8 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commente"])) {
     if (empty($error)) {
         addComm($_GET["idArticle"], $_SESSION["idUser"], $commentaire);
         $_SESSION["flash"] = "Votre commentaire a bien été publié";
+        // $idArticle = $_GET["idArticle"];
+        // header("location: /Projet-Blog-Voyage/Pages/detailsArticle.php?idArticle=$idArticle");
+        // exit;
     }
 }
+$comms = selectAllCommByIdArticle($_GET["idArticle"]);
 foreach ($comms as $comm) :
     $user = infoUsers($comm["userID"]);
 ?>
@@ -29,7 +33,7 @@ foreach ($comms as $comm) :
             <div class="comm"><?php echo $comm["comm"] ?></div>
         </div>
     <?php endforeach; ?>
-    <form action="" class="addComm" method="post" name="commente">
+    <form id ="comm" action="#comm" class="addComm" method="post" name="commente">
         <textarea name="comm" id="comm" cols="100" rows="10"></textarea>
         <span class="error"><?php echo $error["comm"] ?? ""; ?></span>
         <input type="submit" value="Commenter" name="commente">
