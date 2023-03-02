@@ -110,19 +110,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
 
 ?>
 
+<link rel="stylesheet" href="../../src/css/updateArticle.css">
+<script src="../../src/js/tools/counterChar.js" defer></script>
+
 <form action="" class="ajout_article" name="update" method="post" enctype="multipart/form-data">
     <label for="titre">Nom de l'article</label>
     <input type="text" name="titre" id="titre" value="<?php echo $monArticle["nomArticle"] ?>">
-    <br>
     <span class="error"><?php echo $error["titre"] ?? "" ?></span>
     <?php require "../../template/Inscription/sources/_inputPays.php"; ?>
-    <br>
     <span class="error"><?php echo $error["pays"] ?? "" ?></span>
     <div class="ajout_article_base">
         <div class="ajout_article_resume">
-            <label for="resumeText">Resume article</label>
+            <label for="resumeText">Resume article</label><br>
             <textarea type="text" name="resumeText" id="resumeText" rows="10" cols="33"><?php echo $monArticle["texteResume"] ?></textarea>
-            <br>
+            <p class="resume"></p>
             <span class="error"><?php echo $error["resumeText"] ?? "" ?></span>
         </div>
 
@@ -134,8 +135,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
         </div>
 
         <div class="ajout_article_resume">
-            <label for="commentaires">Commentaires lié a la photo</label>
+            <label for="commentaires">Commentaires lié a la photo</label><br>
             <textarea type="text" name="commentaires" id="commentaires" rows="10" cols="33"><?php echo $monArticle["texteContenu"] ?></textarea>
+            <p class="commentaires"></p>
             <br>
 
             <span class="error"><?php echo $error["commentaires"] ?? "" ?></span>

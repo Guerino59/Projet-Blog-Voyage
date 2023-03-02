@@ -31,7 +31,7 @@ if (isset($_SESSION["flash"])) {
     </div>
 
     <!-- autres -->
-    <div>
+    <div class="autres">
         <div class="details_Article_autres">
             <img src="<?php echo $article["photoContenu"] ?>" alt="">
         </div>
