@@ -21,24 +21,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commente"])) {
 }
 $comms = selectAllCommByIdArticle($_GET["idArticle"]);
 ?>
-<h1>Commentaires :</h1>
+<h1 class="h1_commentaires">Commentaires :</h1>
 <div class="commentaires">
 <?php
 foreach ($comms as $comm) :
     $user = infoUsers($comm["userID"]);
 ?>
 
-    
+<link rel="stylesheet" href="/Projet-Blog-Voyage/template/commentaire/sources/style.css">
         <div class="commentaire">
             <div class="utilisateur">
-                <h4><?php echo $user["username"] ?></h4>
                 <img src="<?php echo $user["profilePicture"] ?>" alt="">
+                <h4><?php echo $user["username"] ?></h4>
             </div>
-            <div class="comm"><?php echo $comm["comm"] ?></div>
+                <div class="comm"><?php echo $comm["comm"] ?></div>       
         </div>
+    
     <?php endforeach; ?>
     <form id ="comm" action="#comm" class="addComm" method="post" name="commente">
-        <textarea name="comm" id="comm" cols="100" rows="10"></textarea>
+        <textarea name="comm" id="comm" cols="100" rows="5" placeholder="Votre commentaire ici.."></textarea>
         <span class="error"><?php echo $error["comm"] ?? ""; ?></span>
         <input type="submit" value="Commenter" name="commente">
     </form>
