@@ -29,9 +29,6 @@ foreach ($comms as $comm) :
 ?>
 
 <link rel="stylesheet" href="/Projet-Blog-Voyage/template/commentaire/sources/style.css">
-
-
-    
         <div class="commentaire">
             <div class="utilisateur">
                 <img src="<?php echo $user["profilePicture"] ?>" alt="">
