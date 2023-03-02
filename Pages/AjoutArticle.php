@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
         if (file_exists($target_file))
             $error["file"] = "Ce fichier existe déjà";
 
-        if ($_FILES["resumeImg"]["size"] > 500000)
+        if ($_FILES["resumeImg"]["size"] > 50000000000000000)
             $error["file"] = "Ce fichier est trop gros.";
 
         if (!in_array($mime_type, $typePermis))
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
         if (file_exists($target_file_contenu))
             $error["file"] = "Ce fichier existe déjà";
 
-        if ($_FILES["commentairesImg"]["size"] > 500000)
+        if ($_FILES["commentairesImg"]["size"] > 50000000000000000)
             $error["file"] = "Ce fichier est trop gros.";
 
         if (!in_array($mime_type, $typePermis))

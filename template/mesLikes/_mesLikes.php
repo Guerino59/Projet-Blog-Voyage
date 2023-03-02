@@ -1,7 +1,7 @@
 <?php
 // require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
 
-$articles = AllArticle();
+$mesLikes = getLikeByIdUser($_SESSION["idUser"]);
 if (isset($_SESSION["flash"])) {
     $flash =  $_SESSION["flash"];
     unset($_SESSION["flash"]);
@@ -9,10 +9,15 @@ if (isset($_SESSION["flash"])) {
 if (isset($flash)) : ?>
     <p><?php echo $flash ?></p>
 <?php endif; ?>
+
 <?php
-foreach ($articles as $article) :
+foreach ($mesLikes as $monLike) :
 ?>
-    <?php $userUsername = infoUsers($article["idUser"]); ?>
+    <?php 
+          $article = articleByIdArticle($monLike["idArticle"]);
+          $userUsername = infoUsers($article["idUser"]);
+    ?>
+
     <div class="Resume-cards">
         <span class="pseudo"><?php echo $userUsername["username"] ?></span>
         <span class="paysFav"><?php echo $article["nomPays"] ?></span>
@@ -32,12 +37,12 @@ foreach ($articles as $article) :
 <?php endforeach; ?>
 <?php 
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["like"])){
-    $like = verifyLike($_SESSION["idUser"], $article["idArticle"]);
+    $like = verifyLike($_SESSION["idUser"], $monLike["idArticle"]);
     if($like){
-        unLike($_SESSION["idUser"], $article["idArticle"]);
+        unLike($_SESSION["idUser"], $monLike["idArticle"]);
     }
     if(!$like){
-        like($_SESSION["idUser"], $article["idArticle"]);
+        like($_SESSION["idUser"], $monLike["idArticle"]);
     }
 }
 
