@@ -65,6 +65,7 @@ body {
     width: 150%;
     padding: 20px;
     grid-row: 3/4;
+    text-overflow: ellipsis;
 }
 
 .Resume-cards i {
