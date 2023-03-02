@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
 ?>
 
 <link rel="stylesheet" href="../../src/css/updateArticle.css">
-<script src="../../src/js/AjoutArticle.js" defer></script>
+<script src="../../src/js/tools/counterChar.js" defer></script>
 
 <form action="" class="ajout_article" name="update" method="post" enctype="multipart/form-data">
     <label for="titre">Nom de l'article</label>

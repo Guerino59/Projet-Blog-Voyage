@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
 
 ?>
 <link rel="stylesheet" href="../src/css/AjoutArticle.css">
-<script src="../src/js/AjoutArticle.js" defer></script>
+<script src="../src/js/tools/counterChar.js" defer></script>
 
 <form action="" class="ajout_article" name="create" method="post" enctype="multipart/form-data">
     <label for="titre">Nom de l'article</label>
