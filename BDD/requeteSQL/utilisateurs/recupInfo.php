@@ -60,3 +60,16 @@ function updateArticle($titleArticle, $pays, $photoResume, $texteResume, $photoC
         "idA" => $idArticle
     ]);
 }
+function selectAllCommByIdArticle($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM commentaire WHERE articleID =:idA");
+    $sql->execute(["idA" => $idArticle]);
+    return $sql->fetchAll();
+}
+function addComm($articleID, $userID, $comm)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("INSERT INTO commentaire(articleID, userID, comm) VALUES(?, ?, ?)");
+    $sql->execute([$articleID, $userID, $comm]);
+}

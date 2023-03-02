@@ -6,13 +6,13 @@ if (isset($_SESSION["flash"])) {
     $flash =  $_SESSION["flash"];
     unset($_SESSION["flash"]);
 }
+if (isset($flash)) : ?>
+    <p><?php echo $flash ?></p>
+<?php endif; ?>
+<?php
 foreach ($articles as $article) :
 ?>
-    <?php $userUsername = infoUsers($article["idUser"]);
-    if (isset($flash)) :
-    ?>
-        <p><?php echo $flash ?></p>
-    <?php endif; ?>
+    <?php $userUsername = infoUsers($article["idUser"]); ?>
     <div class="Resume-cards">
         <span class="pseudo"><?php echo $userUsername["username"] ?></span>
         <span class="paysFav"><?php echo $article["nomPays"] ?></span>
