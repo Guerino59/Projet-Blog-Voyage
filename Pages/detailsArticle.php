@@ -32,7 +32,7 @@ if (isset($_SESSION["flash"])) {
 
     <!-- autres -->
     <div class="autres">
-        <div class="details_Article_autres">
+        <div class="details_Article_autres imagie">
             <img src="<?php echo $article["photoContenu"] ?>" alt="">
         </div>
 

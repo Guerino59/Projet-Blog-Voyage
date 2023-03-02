@@ -20,11 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commente"])) {
     }
 }
 $comms = selectAllCommByIdArticle($_GET["idArticle"]);
+?>
+<h1>Commentaires :</h1>
+<div class="commentaires">
+<?php
 foreach ($comms as $comm) :
     $user = infoUsers($comm["userID"]);
 ?>
 
-    <div class="commentaires">
+    
         <div class="commentaire">
             <div class="utilisateur">
                 <h4><?php echo $user["username"] ?></h4>
