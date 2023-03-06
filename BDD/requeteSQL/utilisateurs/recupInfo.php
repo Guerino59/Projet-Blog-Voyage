@@ -74,28 +74,29 @@ function addComm($articleID, $userID, $comm)
     $sql->execute([$articleID, $userID, $comm]);
 }
 
-function getLikeByIdUser($idUser){
+function getLikeByIdUser($idUser)
+{
     $pdo = connexionPDO();
     $sql = $pdo->prepare("SELECT * FROM likearticle WHERE idUser = :idU");
-    $sql->execute(["idU"=>$idUser]);
+    $sql->execute(["idU" => $idUser]);
     return $sql->fetchAll();
 }
 function verifyLike($idUser, $idArticle)
 {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("SELECT * FROM likearticle WHERE idUser = :idU AND idArticle = :idA" );
-    $sql->execute(["idU"=>$idUser, "idA"=>$idArticle]);
+    $sql = $pdo->prepare("SELECT * FROM likearticle WHERE idUser = :idU AND idArticle = :idA");
+    $sql->execute(["idU" => $idUser, "idA" => $idArticle]);
     return $sql->fetch();
 }
 function unLike($idUser, $idArticle)
 {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("DELETE FROM likearticle WHERE idUser = :idU AND idArticle = :idA" );
-    $sql->execute(["idU"=>$idUser, "idA"=>$idArticle]);
+    $sql = $pdo->prepare("DELETE FROM likearticle WHERE idUser = :idU AND idArticle = :idA");
+    $sql->execute(["idU" => $idUser, "idA" => $idArticle]);
 }
 function like($idUser, $idArticle)
 {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("INSERT INTO likearticle (idUSer, idArticle) VALUES(?, ?)" );
+    $sql = $pdo->prepare("INSERT INTO likearticle (idUser, idArticle) VALUES(?, ?)");
     $sql->execute([$idUser, $idArticle]);
 }
