@@ -1,8 +1,8 @@
 <?php
 $title = "Ajout article";
-require __DIR__ . "/../template/navbar/_navbar.php";
+session_start();
 require __DIR__ . "/../service/_cleanData.php";
-// require __DIR__."/../BDD/requeteSQL/utilisateurs/recupInfo.php";
+require __DIR__ . "/../BDD/requeteSQL/utilisateurs/recupInfo.php";
 $titleArticle = $resumeText = $commentaires = $pays = "";
 $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
 $target_file = $target_file_contenu = $target_name = $mime_type = $oldName = $oldNameContenu = $target_name_contenu = $photoResume = $photoCommentaires = "";
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
 
         $target_file_contenu = $target_dirArticle . $target_name_contenu;
         $photoCommentaires = $dirPhotoCommentaires . $target_name_contenu;
-        var_dump($photoCommentaires);
         $mime_type = mime_content_type($_FILES["commentairesImg"]["tmp_name"]);
 
         if (file_exists($target_file_contenu))
@@ -93,6 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
 }
 
 ?>
+<!-- Faire attention a la redirection ou aucun code html ne doit etre avant un header -->
+<?php require __DIR__ . "/../template/navbar/_navbar.php"; ?>
 <link rel="stylesheet" href="../src/css/AjoutArticle.css">
 <script src="../src/js/tools/counterChar.js" defer></script>
 
@@ -145,3 +146,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])) {
         <input class="submit" type="submit" value="Poster" name="create"></input>
     </div>
 </form>
+<?php require __DIR__ . "/../template/footer/_footer.php"; ?>

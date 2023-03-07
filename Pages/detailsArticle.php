@@ -42,6 +42,7 @@ if (isset($_SESSION["flash"])) {
     </div>
     <?php require __DIR__ . "/../template/commentaire/_commentaire.php" ?>
     <?php if (isset($flash)) : ?>
-    <p><?php echo $flash ?></p>
-<?php endif; ?>
+        <p><?php echo $flash ?></p>
+    <?php endif; ?>
 </div>
+<?php require __DIR__ . "/../template/footer/_footer.php"; ?>
