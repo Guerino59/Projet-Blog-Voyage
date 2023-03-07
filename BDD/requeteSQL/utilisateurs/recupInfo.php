@@ -100,3 +100,10 @@ function like($idUser, $idArticle)
     $sql = $pdo->prepare("INSERT INTO likearticle (idUser, idArticle) VALUES(?, ?)");
     $sql->execute([$idUser, $idArticle]);
 }
+function nbLike($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT COUNT(*) FROM likearticle WHERE idArticle=?");
+    $sql->execute([$idArticle]);
+    return $sql->fetch();
+}

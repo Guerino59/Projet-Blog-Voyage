@@ -12,7 +12,10 @@ if (isset($flash)) : ?>
 <?php
 foreach ($articles as $article) :
 ?>
-    <?php $userUsername = infoUsers($article["idUser"]); ?>
+    <?php
+    $userUsername = infoUsers($article["idUser"]);
+    $nblike = nbLike($article["idArticle"]);
+    ?>
     <div class="Resume-cards">
         <span class="pseudo"><?php echo $userUsername["username"] ?></span>
         <span class="paysFav"><?php echo $article["nomPays"] ?></span>
@@ -27,10 +30,7 @@ foreach ($articles as $article) :
                         if (!$like) {
                             echo "fa-regular";
                         }
-                        ?> fa-heart"></i></a>
+                        ?> fa-heart fa-2x"></i><span class="nbLike"><?php echo $nblike["COUNT(*)"] . " Likes" ?></span></a>
+
     </div>
 <?php endforeach; ?>
-<?php
-
-
-?>
