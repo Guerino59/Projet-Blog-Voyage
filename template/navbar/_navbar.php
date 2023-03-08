@@ -2,9 +2,7 @@
 require __DIR__ . "/../../service/_shouldBeLogged.php";
 require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
 shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
-
 $user = infoUsers($_SESSION["idUser"]);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +24,14 @@ $user = infoUsers($_SESSION["idUser"]);
 
     <nav class="navtest">
         <ul>
-            <li><a href="/Projet-Blog-Voyage/Pages/Accueil.php">LOGO</a></li>
+            <li><a href="/Projet-Blog-Voyage/Pages/Accueil.php"><img src="/Projet-Blog-Voyage/ressources/img/logo_transparent.png" alt=""></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/filActu.php"><i class="fa-solid fa-house"></i></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/MesLikes.php"><i class="fa-solid fa-heart"></i></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/AjoutArticle.php"><i class="fa-solid fa-circle-plus"></i></a></li>
             <li class="profile-nav">
                 <a><?php echo $user["username"] ?></a>
-                <img src=<?php echo $user["profilePicture"] ?> alt="">
+                <a href="/Projet-Blog-Voyage/Pages/pageUtilisateurs.php?idUser=<?php echo $_SESSION["idUser"] ?>">
+                <img class="profilePicture" src=<?php echo $user["profilePicture"] ?> alt=""></a>
                 <div class="hidden-nav">
                     <ul>
                         <li><a href="/Projet-Blog-Voyage/Pages/mesArticles.php?id=<?php echo $_SESSION["idUser"] ?>">Mes articles</a></li>
