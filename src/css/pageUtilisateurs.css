@@ -11,6 +11,8 @@
     border-radius: 30px;
     margin-top: 2%;
     font-family: var(--mainFont);
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .utilisateurs{

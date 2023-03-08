@@ -44,7 +44,7 @@ body {
     font-family: var(--boldFont);
 }
 
-.auteur>img {
+.auteur> a > img {
     width: 5%;
     aspect-ratio: 1/1;
     border: 2px solid black;
