@@ -1,0 +1,37 @@
+@import url(../css/variable.css);
+.utilisateurs{
+    padding: 20px;
+    list-style: none;
+}
+
+
+.follow{
+    padding: 10px;
+    border: solid 5px var(--navColor);
+    border-radius: 10px;
+    width: 50%;
+    height: 60vh;
+    display: block;
+    margin: 30px auto;
+    background-color: var(--backgroundColor);
+}
+.utilisateurs > a{
+    gap: 10px;
+    display: flex;
+   text-decoration: none;
+   color: black;
+}
+.utilisateurs > a > p{
+    text-transform: capitalize;
+    font-size: 25px;
+}
+.utilisateurs > a > img{
+    width: 30px;
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    border-radius: 100%;
+}
+h2{
+    margin-top: 100px;
+    text-align: center;
+}

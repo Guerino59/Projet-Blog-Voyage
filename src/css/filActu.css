@@ -1,6 +1,33 @@
-input{
+@import url(../css/variable.css);
+#search{
     position: fixed;
-    right: 100px;
-    top: 10%;
+    left: 250px;
+    top: 15%;
     padding: 10px;
+    font-family: var(--boldFont);
+    z-index: 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888;
+}
+#searchs{
+    display: none;
+}
+label i{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+#search select{
+    position: fixed;
+    left: 40px;
+    top: 15%;
+    padding: 10px;
+    
+}
+@media (min-width: 0px) and (max-width: 1000px) {
+    #pays
+    {
+        top:3%;
+    }
+    #search
+    {
+        top:3%;
+    }
 }

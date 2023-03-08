@@ -1,11 +1,11 @@
 <?php
-// require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
-require __DIR__ . "/../../template/navbar/_navbar.php";
+require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
+
 require __DIR__ . "/../../service/_cleanData.php";
 $monArticle = articleByIdArticle($_GET['idArticle']);
 $paysInput = "Changer le pays";
 $articlePays = $monArticle["nomPays"];
-
+session_start();
 if (empty($_GET["idArticle"]) || $_SESSION["idUser"] != $monArticle["idUser"]) {
     header("Location: /Projet-Blog-Voyage/Pages/filActu.php");
     exit;
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
         exit;
     }
 }
-
+require __DIR__ . "/../../template/navbar/_navbar.php";
 ?>
 
 <link rel="stylesheet" href="../../src/css/updateArticle.css">

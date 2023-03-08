@@ -18,12 +18,12 @@ shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
 
 </head>
 
-<body>
-
+<body class="<?php echo $bodyclass??"" ?>">
     <nav class="navtest">
         <ul>
             <li><a href="/Projet-Blog-Voyage/Pages/Accueil.php"><img src="/Projet-Blog-Voyage/ressources/img/logo_transparent.png" alt=""></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/filActu.php"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="/Projet-Blog-Voyage/Pages/follow.php"><i class="fa-solid fa-address-book"></i></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/MesLikes.php"><i class="fa-solid fa-heart"></i></a></li>
             <li><a href="/Projet-Blog-Voyage/Pages/AjoutArticle.php"><i class="fa-solid fa-circle-plus"></i></a></li>
             <li class="profile-nav">

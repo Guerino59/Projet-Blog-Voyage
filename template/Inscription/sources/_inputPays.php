@@ -1,4 +1,4 @@
-<label for="pays"><?php echo $paysInput ?? "Cours PHP" ?></label>
+<label for="pays"><?php echo $paysInput ?? "" ?></label>
 <select name="pays" id="pays" class="countryInput">
     <option value="<?php echo $articlePays ?? "" ?>"><?php echo $articlePays ?? "Choisissez un pays :" ?></option>
     <option value="Afghanistan">Afghanistan </option>

@@ -115,6 +115,31 @@ h1 {
     text-align: center;
 }
 
+@import url(../css/variable.css);
+#search{
+    position: fixed;
+    left: 250px;
+    top: 15%;
+    padding: 10px;
+    font-family: var(--boldFont);
+    z-index: 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888;
+}
+#searchs{
+    display: none;
+}
+label i{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.payscss #pays{
+    position: fixed;
+    left: 40px;
+    top: 15%;
+    padding: 10px;
+    
+}
+
+
 @media (min-width: 0px) and (max-width: 1000px) {
     .Resume-cards {
         width: 80%;
@@ -122,5 +147,13 @@ h1 {
 
     span {
         font-size: small;
+    }
+    #pays
+    {
+        top:3%;
+    }
+    #search
+    {
+        top:3%;
     }
 }

@@ -16,6 +16,14 @@ function AllArticle()
     return $sql->fetchAll();
 }
 
+function AllArticleByPays($pays)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM article WHERE nomPays=?");
+    $sql->execute([$pays]);
+    return $sql->fetchAll();
+}
+
 function mesArticles($idUser)
 {
     $pdo = connexionPDO();
@@ -114,6 +122,13 @@ function verifyFollow($idFollower, $idFollowed)
     $sql = $pdo->prepare("SELECT * FROM follow WHERE UserQuiSuit = :idFollower AND UserSuivi = :idFollowed");
     $sql->execute(["idFollower" => $idFollower, "idFollowed" => $idFollowed]);
     return $sql->fetch();
+}
+function getFollow($idFollower)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM follow WHERE UserQuiSuit = :idFollower");
+    $sql->execute(["idFollower" => $idFollower ]);
+    return $sql->fetchAll();
 }
 function unfollow($idFollower, $idFollowed)
 {
