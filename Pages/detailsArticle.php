@@ -1,6 +1,7 @@
 <?php
 $title = "Details article";
 require __DIR__ . "/../template/navbar/_navbar.php";
+require __DIR__ . "/../BDD/requeteSQL/utilisateurs/recupInfo.php";
 $article = articleByIdArticle($_GET["idArticle"]);
 $usernameArticle = infoUsers($article["idUser"]);
 if (isset($_SESSION["flash"])) {

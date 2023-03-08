@@ -107,3 +107,23 @@ function nbLike($idArticle)
     $sql->execute([$idArticle]);
     return $sql->fetch();
 }
+
+function verifyFollow($idFollower, $idFollowed)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM follow WHERE UserQuiSuit = :idFollower AND UserSuivi = :idFollowed");
+    $sql->execute(["idFollower" => $idFollower, "idFollowed" => $idFollowed]);
+    return $sql->fetch();
+}
+function unfollow($idFollower, $idFollowed)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("DELETE FROM follow WHERE UserQuiSuit = :idFollower AND UserSuivi = :idFollowed");
+    $sql->execute(["idFollower" => $idFollower, "idFollowed" => $idFollowed]);
+}
+function follow($idFollower, $idFollowed)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("INSERT INTO follow (UserQuiSuit, UserSuivi) VALUES(?, ?)");
+    $sql->execute([$idFollower, $idFollowed]);
+}

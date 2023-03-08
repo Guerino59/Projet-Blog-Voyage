@@ -1,6 +1,7 @@
 <?php
 $title = "Modifier Utilisateurs";
-require __DIR__ . "/../template/navbar/_navbar.php"
+require __DIR__ . "/../template/navbar/_navbar.php";
+require __DIR__ . "/../BDD/requeteSQL/utilisateurs/recupInfo.php";
 ?>
 
 <?php

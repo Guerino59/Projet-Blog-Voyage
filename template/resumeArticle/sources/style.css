@@ -5,7 +5,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.flash{
+    /* position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%); */
+    margin-top: 100px;
+    margin-bottom: -50px;
+    text-align: center;
+}
+h2 {
+    margin-top: 50px;
+}
 .container {
     display: flex;
     flex-direction: column;
