@@ -44,7 +44,7 @@ body {
     font-family: var(--boldFont);
 }
 
-.auteur>img {
+.auteur> a > img {
     width: 5%;
     aspect-ratio: 1/1;
     border: 2px solid black;
@@ -118,7 +118,6 @@ body {
 
 .details_Article_autres>img {
     width: 80%;
-    /* height: 10%; */
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid #0a6363;
