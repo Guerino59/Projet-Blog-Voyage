@@ -29,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])){
             if(password_verify($pass, $user["password"])){
                 $_SESSION["logged"] = true; 
                 $_SESSION["username"] = $user["username"];
+                $_SESSION["profile"] = $user["profilePicture"];
                 $_SESSION["idUser"] = $user["idUser"];
                 $_SESSION["expire"] = time()+ (60*60);
                 $_SESSION["flash"] = "Bonjour " . $user["username"];
