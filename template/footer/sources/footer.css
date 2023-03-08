@@ -1,11 +1,3 @@
-*,
-::before,
-::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 @import url(../../../src/css/variable.css);
 
 footer {
@@ -13,6 +5,7 @@ footer {
     height: 200px;
     background-color: var(--navColor);
     font-family: var(--mainFont);
+    width: 100%;
 }
 
 .bloc-contact {
@@ -62,30 +55,34 @@ iframe {
     color: white;
 }
 
-@media (min-width: 0px) and (max-width: 1000px){
+@media (min-width: 0px) and (max-width: 1000px) {
     footer {
         height: 650px;
         flex-direction: column;
         padding-top: 30px;
         padding-bottom: 30px;
     }
-    .footer-info{
+
+    .footer-info {
         display: flex;
         flex-direction: column;
     }
-    
+
     .bloc-contact {
         width: 100%;
         flex-direction: column;
     }
+
     .bloc-socials {
         width: 100%;
         flex-direction: column;
         gap: 20px;
     }
+
     .logo-socials {
         gap: 30px;
     }
+
     .info-socials {
         width: 80%;
     }

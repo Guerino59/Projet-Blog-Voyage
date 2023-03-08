@@ -1,5 +1,7 @@
 <?php
-$articles = AllArticle();
+// require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
+
+$mesLikes = getLikeByIdUser($_SESSION["idUser"]);
 if (isset($_SESSION["flash"])) {
     $flash =  $_SESSION["flash"];
     unset($_SESSION["flash"]);
@@ -7,14 +9,21 @@ if (isset($_SESSION["flash"])) {
 if (isset($flash)) : ?>
     <p><?php echo $flash ?></p>
 <?php endif; ?>
+
+<?php if (!$mesLikes) : ?>
+    <div class="nolike">
+        <h1>Vous n'avez liké aucun article</h1>
+        <a href="/Projet-Blog-Voyage/Pages/filActu.php">Cliquez ici pour découvrir nos articles</a>
+    </div>
+<?php endif; ?>
 <div class="container">
     <?php
-    foreach ($articles as $article) :
-    ?>
-        <?php
+    foreach ($mesLikes as $monLike) :
+        $article = articleByIdArticle($monLike["idArticle"]);
         $userUsername = infoUsers($article["idUser"]);
         $nblike = nbLike($article["idArticle"]);
-        ?>
+    ?>
+
         <div class="Resume-cards">
             <span class="pseudo"><?php echo $userUsername["username"] ?></span>
             <span class="paysFav"><?php echo $article["nomPays"] ?></span>
@@ -30,8 +39,8 @@ if (isset($flash)) : ?>
                                 echo "fa-regular";
                             }
                             ?> fa-heart fa-2x"></i><span class="nbLike"><?php echo $nblike["COUNT(*)"] . " Likes" ?></span></a>
-
         </div>
-
-    <?php endforeach; ?>
+    <?php
+    endforeach;
+    ?>
 </div>
