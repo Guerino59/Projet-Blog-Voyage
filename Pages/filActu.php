@@ -1,11 +1,10 @@
-
+<?php
+$title = "Fil d'Actualité";
+require __DIR__ . "/../template/navbar/_navbar.php"
+?>
+<link rel="stylesheet" href="../src/css/filActu.css">
 
 <?php
-    $title = "Fil d'Actualité";
-    require __DIR__."/../template/navbar/_navbar.php" 
+require __DIR__ . "/../template/resumeArticle/_resumeArticle.php";
 ?>
-    <link rel="stylesheet" href="../src/css/filActu.css">
-
-<?php
-    require __DIR__."/../template/resumeArticle/_resumeArticle.php" ;
-?>
+<?php require __DIR__ . "/../template/footer/_footer.php" ?>

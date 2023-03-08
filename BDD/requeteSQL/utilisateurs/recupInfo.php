@@ -73,3 +73,37 @@ function addComm($articleID, $userID, $comm)
     $sql = $pdo->prepare("INSERT INTO commentaire(articleID, userID, comm) VALUES(?, ?, ?)");
     $sql->execute([$articleID, $userID, $comm]);
 }
+
+function getLikeByIdUser($idUser)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM likearticle WHERE idUser = :idU");
+    $sql->execute(["idU" => $idUser]);
+    return $sql->fetchAll();
+}
+function verifyLike($idUser, $idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM likearticle WHERE idUser = :idU AND idArticle = :idA");
+    $sql->execute(["idU" => $idUser, "idA" => $idArticle]);
+    return $sql->fetch();
+}
+function unLike($idUser, $idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("DELETE FROM likearticle WHERE idUser = :idU AND idArticle = :idA");
+    $sql->execute(["idU" => $idUser, "idA" => $idArticle]);
+}
+function like($idUser, $idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("INSERT INTO likearticle (idUser, idArticle) VALUES(?, ?)");
+    $sql->execute([$idUser, $idArticle]);
+}
+function nbLike($idArticle)
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT COUNT(*) FROM likearticle WHERE idArticle=?");
+    $sql->execute([$idArticle]);
+    return $sql->fetch();
+}
