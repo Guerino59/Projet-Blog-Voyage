@@ -1,6 +1,4 @@
 <?php
-// require __DIR__ . "/../../BDD/requeteSQL/utilisateurs/recupInfo.php";
-
 $articles = AllArticle();
 if (isset($_SESSION["flash"])) {
     $flash =  $_SESSION["flash"];

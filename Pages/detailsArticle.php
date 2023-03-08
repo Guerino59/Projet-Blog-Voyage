@@ -1,5 +1,5 @@
 <?php
-$title = "Ajout article";
+$title = "Details article";
 require __DIR__ . "/../template/navbar/_navbar.php";
 $article = articleByIdArticle($_GET["idArticle"]);
 $usernameArticle = infoUsers($article["idUser"]);
@@ -17,7 +17,8 @@ if (isset($_SESSION["flash"])) {
     </div>
     <div class="auteur">
         <p><?php echo $usernameArticle["username"] ?></p>
-        <img src="<?php echo $usernameArticle["profilePicture"] ?>" alt="">
+        <a href="/Projet-Blog-Voyage/Pages/pageUtilisateurs.php?idUser=<?php echo $article["idUser"] ?>">
+        <img src=<?php echo $usernameArticle["profilePicture"] ?>></a>
     </div>
     <!-- resume -->
     <div class="details_Article_base">
