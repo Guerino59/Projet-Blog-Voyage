@@ -2,7 +2,7 @@
 $title = "Ajout article";
 session_start();
 require __DIR__ . "/../service/_cleanData.php";
-require __DIR__ . "/../BDD/requeteSQL/utilisateurs/recupInfo.php";
+// require __DIR__ . "/../BDD/requeteSQL/utilisateurs/recupInfo.php";
 $titleArticle = $resumeText = $commentaires = $pays = "";
 $typePermis = ["image/png", "image/jpeg", "image/gif", "application/pdf"];
 $target_file = $target_file_contenu = $target_name = $mime_type = $oldName = $oldNameContenu = $target_name_contenu = $photoResume = $photoCommentaires = "";
