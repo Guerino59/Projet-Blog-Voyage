@@ -27,8 +27,7 @@
 <?php endif; ?>
 <div class="body_acceuil">
     <div class="acceuil_start">
-        <h1>En savoir plus ?</h1>
-        <button><i class="fa-solid fa-arrow-turn-down"></i></button>
+        <h1>Bienvenue sur Blog Voyage</h1>
     </div>
 
     <div class="acceuil_presentation">
@@ -42,9 +41,9 @@
             </p>
         </div>
         <div>
-            <img src="../ressources/img/acceuil/presentation1.jpg" alt="" class="presentation1">
-            <img src="../ressources/img/acceuil/presentation2.webp" alt="" class="presentation2">
-            <img src="../ressources/img/acceuil/presentation3.webp" alt="" class="presentation3">
+            <img src="../ressources/img/acceuil/22222.png" alt="" class="presentation2">
+            <img src="../ressources/img/acceuil/Screenshot 2023-03-09 at 11-04-55 Details article.png" alt="" class="presentation1">
+            <img src="../ressources/img/acceuil/33333.png" alt="" class="presentation3">
         </div>
 
     </div>

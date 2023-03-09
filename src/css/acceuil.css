@@ -12,7 +12,7 @@
 
 /* ACCEUIL START */
 .acceuil_start {
-    background: url("../../ressources/img/acceuil/avion_acceuil.jpg") no-repeat center/cover fixed;
+    background: url("../../ressources/img/acceuil/pexels-josh-hild-2422461.jpg") no-repeat center/cover fixed;
     height: 100vh;
     text-align: center;
     color: var(--backgroundColor);
@@ -22,8 +22,8 @@
 
 .acceuil_start>h1 {
     padding-top: 250px;
-    font-size: 200px;
-    font-family: var(--titleFont);
+    font-size: 130px;
+    font-family: var(--mainFont);
 }
 
 .acceuil_start>button {
@@ -69,6 +69,7 @@
 .acceuil_presentation>div>img {
     max-width: 550px;
     max-height: 250px;
+    border: 3px solid black;
 }
 
 .presentation1 {
@@ -168,7 +169,7 @@
 @media (min-width: 0px) and (max-width: 1000px) 
 {
     .acceuil_start {
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("../../ressources/img/acceuil/avion_acceuil.jpg") no-repeat center/cover fixed;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("../../ressources/img/acceuil/pexels-josh-hild-2422461.jpg") no-repeat center/cover fixed;
         background-position: 20%;
     }
     .acceuil_start > h1{

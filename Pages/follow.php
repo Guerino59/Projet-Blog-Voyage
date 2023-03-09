@@ -3,13 +3,14 @@
     require __DIR__ . "/../template/navbar/_navbar.php";
     $followed = getFollow($_SESSION["idUser"]);
     ?>
+    <link rel="stylesheet" href="/Projet-Blog-Voyage/src/css/follow.css">
     <h2>Les personnes que vous suivez</h2>
     <ul class="follow">
     <?php
     foreach($followed as $f):
         $userFollow = infoUsers($f["UserSuivi"]);
     ?>
-    <link rel="stylesheet" href="/Projet-Blog-Voyage/src/css/follow.css">
+    
     <li class="utilisateurs">
         <a href="/Projet-Blog-Voyage/Pages/pageUtilisateurs.php?idUser=<?php echo $userFollow["idUser"] ?>">
              <p><?php echo $userFollow["username"] ?></p>

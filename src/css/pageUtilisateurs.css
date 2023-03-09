@@ -13,6 +13,7 @@
     font-family: var(--mainFont);
     margin-top: 100px;
     margin-bottom: 100px;
+    min-height: 60vh;
 }
 
 .utilisateurs{
@@ -30,7 +31,7 @@
     font-size: 25px;
 }
 .utilisateurs > img{
-    width: 5%;
+    width: 70px;
     aspect-ratio: 1/1;
     border: 2px solid black;
     border-radius: 100%;

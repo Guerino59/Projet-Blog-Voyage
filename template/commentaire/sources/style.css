@@ -1,8 +1,9 @@
 .commentaires{
     width: 100%;
+    margin-top: 100px;
 }
 .h1_commentaires{
-    margin-top: 10%;
+    
 }
 #comm > textarea{
     resize: none;

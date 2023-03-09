@@ -11,7 +11,7 @@
 body {
   /* margin-top: 100px; */
   overflow-x: hidden;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   position: relative;
   background: #E0EAFC;
   /* fallback for old browsers */
@@ -149,9 +149,14 @@ i {
   .navtest {
     display: none;
   }
-
+  .body{
+    height: 100vh;
+  }
   .burger {
     display: block;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
   }
 
 
@@ -176,7 +181,7 @@ i {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 0px;
+    height: 100vh;
   }
 
   .navbar .menu-items {

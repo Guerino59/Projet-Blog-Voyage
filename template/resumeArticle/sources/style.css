@@ -148,7 +148,7 @@ label i{
     span {
         font-size: small;
     }
-    #pays
+    .payscss #pays
     {
         top:3%;
     }
@@ -156,4 +156,5 @@ label i{
     {
         top:3%;
     }
+    
 }

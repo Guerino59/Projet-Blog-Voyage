@@ -63,8 +63,8 @@ shouldBeLogged(true, "/Projet-Blog-Voyage/Pages/Accueil.php");
                             </ul>
                         </li>
                         <li class="profile-burger">
-                            <img src=<?php echo $user["profilePicture"] ?> alt="">
-                            <a><?php echo $user["username"] ?></a><br><br>
+                            <img src=<?php echo $_SESSION["profile"] ?> alt="">
+                            <a><?php echo $_SESSION["username"] ?></a><br><br>
                             <div class="hidden-burger">
                                 <ul>
                                     <li><a href="/Projet-Blog-Voyage/Pages/mesArticles.php?id=<?php echo $_SESSION["idUser"] ?>">Mes articles</a></li>
